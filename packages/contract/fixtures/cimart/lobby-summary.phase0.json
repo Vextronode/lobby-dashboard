@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-11-02T03:00:00Z",
+  "stats": {
+    "active_stores": 1,
+    "available_products": 2
+  },
+  "featured_products": [
+    {
+      "id": 101,
+      "name": "Keripik Pisang",
+      "slug": "keripik-pisang",
+      "price": 15000,
+      "unit": "bungkus",
+      "image_url": "https://cimart.example.id/storage/products/keripik-pisang.jpg",
+      "category": {
+        "name": "Makanan",
+        "slug": "makanan"
+      },
+      "store": {
+        "name": "Toko Oleh-oleh Cibenda",
+        "slug": "toko-oleh-oleh-cibenda"
+      },
+      "url": "https://cimart.example.id/product/keripik-pisang"
+    },
+    {
+      "id": 102,
+      "name": "Gula Aren Cetak",
+      "slug": "gula-aren-cetak",
+      "price": 22000,
+      "unit": "kg",
+      "image_url": "https://cimart.example.id/storage/products/gula-aren-cetak.jpg",
+      "category": {
+        "name": "Makanan",
+        "slug": "makanan"
+      },
+      "store": {
+        "name": "Koperasi Aren Patrol",
+        "slug": "koperasi-aren-patrol"
+      },
+      "url": "https://cimart.example.id/product/gula-aren-cetak"
+    }
+  ]
+}

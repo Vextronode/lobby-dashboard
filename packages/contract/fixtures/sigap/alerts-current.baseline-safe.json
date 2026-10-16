@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "message": "Alert terbaru berhasil diambil.",
+  "data": {
+    "id": "baseline-safe",
+    "level": "GREEN",
+    "description": "Kondisi wilayah Desa Cibenda aman dan kondusif.",
+    "createdAt": "2026-11-02T01:00:00.000Z"
+  }
+}

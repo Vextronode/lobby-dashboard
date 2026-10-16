@@ -1,0 +1,109 @@
+{
+  "published": true,
+  "generated_at": "2026-11-02T03:00:00Z",
+  "as_of": "2026-11-01T08:12:44Z",
+  "suppression_threshold": 10,
+  "population": {
+    "total": 4210,
+    "male": 2131,
+    "female": 2079,
+    "households": 1288
+  },
+  "age_pyramid": {
+    "bucket_years": 10,
+    "buckets": [
+      {
+        "label": "0–9",
+        "male": 301,
+        "female": 287
+      },
+      {
+        "label": "10–19",
+        "male": 322,
+        "female": 310
+      },
+      {
+        "label": "20–29",
+        "male": 345,
+        "female": 352
+      },
+      {
+        "label": "30–39",
+        "male": 330,
+        "female": 341
+      },
+      {
+        "label": "40–49",
+        "male": 298,
+        "female": 305
+      },
+      {
+        "label": "50–59",
+        "male": 262,
+        "female": 270
+      },
+      {
+        "label": "60–69",
+        "male": 215,
+        "female": 206
+      },
+      {
+        "label": "70+",
+        "male": 58,
+        "female": null
+      }
+    ]
+  },
+  "occupations": {
+    "top": [
+      {
+        "name": "Petani",
+        "count": 812
+      },
+      {
+        "name": "Buruh Tani",
+        "count": 431
+      },
+      {
+        "name": "Pedagang",
+        "count": 268
+      },
+      {
+        "name": "Wiraswasta",
+        "count": 199
+      },
+      {
+        "name": "Karyawan Swasta",
+        "count": 150
+      }
+    ],
+    "others_count": 145,
+    "non_working_count": 2168,
+    "unfilled_count": 37
+  },
+  "hamlets": {
+    "items": [
+      {
+        "name": "Budiasih",
+        "count": 812
+      },
+      {
+        "name": "Cibenda",
+        "count": 980
+      },
+      {
+        "name": "Patrol",
+        "count": 905
+      },
+      {
+        "name": "Sinargalih",
+        "count": 760
+      },
+      {
+        "name": "Sucen",
+        "count": 741
+      }
+    ],
+    "unassigned_count": 12
+  }
+}

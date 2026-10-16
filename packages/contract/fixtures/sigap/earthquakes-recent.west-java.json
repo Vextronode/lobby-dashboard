@@ -1,0 +1,62 @@
+{
+  "success": true,
+  "message": "Daftar gempa berhasil diambil.",
+  "data": [
+    {
+      "magnitude": 4.1,
+      "depth": "10 km",
+      "location": "23 km TimurLaut KAB-TASIKMALAYA-JABAR",
+      "coordinates": {
+        "latitude": -7.21,
+        "longitude": 108.36
+      },
+      "distanceToVillage": 88,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-11-01T21:15:42.000Z"
+    },
+    {
+      "magnitude": 3.4,
+      "depth": "6 km",
+      "location": "12 km BaratLaut KAB-GARUT-JABAR",
+      "coordinates": {
+        "latitude": -7.11,
+        "longitude": 107.81
+      },
+      "distanceToVillage": 121,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-11-01T09:02:05.000Z"
+    },
+    {
+      "magnitude": 3.9,
+      "depth": "14 km",
+      "location": "8 km Tenggara KAB-SUKABUMI-JABAR",
+      "coordinates": {
+        "latitude": -7.05,
+        "longitude": 106.98
+      },
+      "distanceToVillage": 205,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-10-31T17:48:30.000Z"
+    },
+    {
+      "magnitude": 3.1,
+      "depth": "5 km",
+      "location": "5 km BaratDaya KAB-CIANJUR-JABAR",
+      "coordinates": {
+        "latitude": -6.87,
+        "longitude": 107.11
+      },
+      "distanceToVillage": 230,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-10-30T03:20:11.000Z"
+    }
+  ]
+}

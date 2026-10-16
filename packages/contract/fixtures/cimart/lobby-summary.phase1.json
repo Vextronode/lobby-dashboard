@@ -1,0 +1,179 @@
+{
+  "generated_at": "2026-11-02T03:00:00Z",
+  "stats": {
+    "active_stores": 5,
+    "available_products": 17
+  },
+  "featured_products": [
+    {
+      "id": 101,
+      "name": "Keripik Pisang",
+      "slug": "keripik-pisang",
+      "price": 15000,
+      "unit": "bungkus",
+      "image_url": "https://cimart.example.id/storage/products/keripik-pisang.jpg",
+      "category": {
+        "name": "Makanan",
+        "slug": "makanan"
+      },
+      "store": {
+        "name": "Toko Oleh-oleh Cibenda",
+        "slug": "toko-oleh-oleh-cibenda"
+      },
+      "url": "https://cimart.example.id/product/keripik-pisang"
+    },
+    {
+      "id": 102,
+      "name": "Gula Aren Cetak",
+      "slug": "gula-aren-cetak",
+      "price": 22000,
+      "unit": "kg",
+      "image_url": "https://cimart.example.id/storage/products/gula-aren-cetak.jpg",
+      "category": {
+        "name": "Makanan",
+        "slug": "makanan"
+      },
+      "store": {
+        "name": "Koperasi Aren Patrol",
+        "slug": "koperasi-aren-patrol"
+      },
+      "url": "https://cimart.example.id/product/gula-aren-cetak"
+    },
+    {
+      "id": 103,
+      "name": "Kopi Robusta Bubuk",
+      "slug": "kopi-robusta-bubuk",
+      "price": 35000,
+      "unit": "250 g",
+      "image_url": "https://cimart.example.id/storage/products/kopi-robusta-bubuk.jpg",
+      "category": {
+        "name": "Minuman",
+        "slug": "minuman"
+      },
+      "store": {
+        "name": "Kedai Kopi Sinargalih",
+        "slug": "kedai-kopi-sinargalih"
+      },
+      "url": "https://cimart.example.id/product/kopi-robusta-bubuk"
+    },
+    {
+      "id": 104,
+      "name": "Tas Anyaman Pandan",
+      "slug": "tas-anyaman-pandan",
+      "price": 85000,
+      "unit": null,
+      "image_url": null,
+      "category": {
+        "name": "Kerajinan",
+        "slug": "kerajinan"
+      },
+      "store": {
+        "name": "Sanggar Anyaman Sucen",
+        "slug": "sanggar-anyaman-sucen"
+      },
+      "url": "https://cimart.example.id/product/tas-anyaman-pandan"
+    },
+    {
+      "id": 105,
+      "name": "Ikan Asin Jambal",
+      "slug": "ikan-asin-jambal",
+      "price": 60000,
+      "unit": "kg",
+      "image_url": "https://cimart.example.id/storage/products/ikan-asin-jambal.jpg",
+      "category": {
+        "name": "Makanan",
+        "slug": "makanan"
+      },
+      "store": {
+        "name": "Toko Oleh-oleh Cibenda",
+        "slug": "toko-oleh-oleh-cibenda"
+      },
+      "url": "https://cimart.example.id/product/ikan-asin-jambal"
+    },
+    {
+      "id": 106,
+      "name": "Sabun Sereh Wangi",
+      "slug": "sabun-sereh-wangi",
+      "price": 12000,
+      "unit": "batang",
+      "image_url": "https://cimart.example.id/storage/products/sabun-sereh-wangi.jpg",
+      "category": {
+        "name": "Kesehatan",
+        "slug": "kesehatan"
+      },
+      "store": {
+        "name": "UMKM Herbal Budiasih",
+        "slug": "umkm-herbal-budiasih"
+      },
+      "url": "https://cimart.example.id/product/sabun-sereh-wangi"
+    },
+    {
+      "id": 107,
+      "name": "Rengginang Ketan",
+      "slug": "rengginang-ketan",
+      "price": 18000,
+      "unit": "bungkus",
+      "image_url": null,
+      "category": {
+        "name": "Makanan",
+        "slug": "makanan"
+      },
+      "store": {
+        "name": "Koperasi Aren Patrol",
+        "slug": "koperasi-aren-patrol"
+      },
+      "url": "https://cimart.example.id/product/rengginang-ketan"
+    },
+    {
+      "id": 108,
+      "name": "Topi Bambu",
+      "slug": "topi-bambu",
+      "price": 45000,
+      "unit": null,
+      "image_url": "https://cimart.example.id/storage/products/topi-bambu.jpg",
+      "category": {
+        "name": "Kerajinan",
+        "slug": "kerajinan"
+      },
+      "store": {
+        "name": "Sanggar Anyaman Sucen",
+        "slug": "sanggar-anyaman-sucen"
+      },
+      "url": "https://cimart.example.id/product/topi-bambu"
+    },
+    {
+      "id": 109,
+      "name": "Madu Hutan",
+      "slug": "madu-hutan",
+      "price": 95000,
+      "unit": "botol",
+      "image_url": "https://cimart.example.id/storage/products/madu-hutan.jpg",
+      "category": {
+        "name": "Makanan",
+        "slug": "makanan"
+      },
+      "store": {
+        "name": "UMKM Herbal Budiasih",
+        "slug": "umkm-herbal-budiasih"
+      },
+      "url": "https://cimart.example.id/product/madu-hutan"
+    },
+    {
+      "id": 110,
+      "name": "Teh Daun Kelor",
+      "slug": "teh-daun-kelor",
+      "price": 25000,
+      "unit": "kotak",
+      "image_url": "https://cimart.example.id/storage/products/teh-daun-kelor.jpg",
+      "category": {
+        "name": "Minuman",
+        "slug": "minuman"
+      },
+      "store": {
+        "name": "Kedai Kopi Sinargalih",
+        "slug": "kedai-kopi-sinargalih"
+      },
+      "url": "https://cimart.example.id/product/teh-daun-kelor"
+    }
+  ]
+}

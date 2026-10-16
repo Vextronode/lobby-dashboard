@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "message": "Alert terbaru berhasil diambil.",
+  "data": {
+    "id": "alert-0003",
+    "level": "GREEN",
+    "description": "Potensi banjir di bantaran sungai. Siapkan tas siaga dan pantau informasi desa.",
+    "createdAt": "2026-11-02T01:00:00.000Z",
+    "basis": "record",
+    "expired": true
+  }
+}

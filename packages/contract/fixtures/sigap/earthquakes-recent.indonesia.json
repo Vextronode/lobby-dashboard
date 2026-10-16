@@ -1,0 +1,104 @@
+{
+  "success": true,
+  "message": "Daftar gempa berhasil diambil.",
+  "data": [
+    {
+      "magnitude": 5.2,
+      "depth": "33 km",
+      "location": "101 km BaratDaya KAB-SUMBA-BARAT-NTT",
+      "coordinates": {
+        "latitude": -10.31,
+        "longitude": 118.95
+      },
+      "distanceToVillage": 1120,
+      "felt": "",
+      "potential": "Tidak berpotensi tsunami",
+      "shakemap": "",
+      "updatedAt": "2026-11-02T00:05:12.000Z"
+    },
+    {
+      "magnitude": 4.1,
+      "depth": "10 km",
+      "location": "23 km TimurLaut KAB-TASIKMALAYA-JABAR",
+      "coordinates": {
+        "latitude": -7.21,
+        "longitude": 108.36
+      },
+      "distanceToVillage": 88,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-11-01T21:15:42.000Z"
+    },
+    {
+      "magnitude": 4.8,
+      "depth": "60 km",
+      "location": "75 km BaratLaut KAB-KEP-MENTAWAI-SUMBAR",
+      "coordinates": {
+        "latitude": -1.62,
+        "longitude": 99.21
+      },
+      "distanceToVillage": 1410,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-11-01T14:33:47.000Z"
+    },
+    {
+      "magnitude": 5,
+      "depth": "10 km",
+      "location": "40 km TimurLaut KAB-HALMAHERA-BARAT-MALUT",
+      "coordinates": {
+        "latitude": 1.42,
+        "longitude": 127.85
+      },
+      "distanceToVillage": 2390,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-11-01T06:12:09.000Z"
+    },
+    {
+      "magnitude": 4.4,
+      "depth": "25 km",
+      "location": "18 km Tenggara KAB-JEMBER-JATIM",
+      "coordinates": {
+        "latitude": -8.52,
+        "longitude": 113.71
+      },
+      "distanceToVillage": 590,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-10-31T22:40:55.000Z"
+    },
+    {
+      "magnitude": 4.9,
+      "depth": "45 km",
+      "location": "120 km BaratDaya KAB-LEBAK-BANTEN",
+      "coordinates": {
+        "latitude": -7.82,
+        "longitude": 105.62
+      },
+      "distanceToVillage": 330,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-10-31T11:27:18.000Z"
+    },
+    {
+      "magnitude": 4.3,
+      "depth": "12 km",
+      "location": "30 km Utara KAB-SELAYAR-SULSEL",
+      "coordinates": {
+        "latitude": -5.81,
+        "longitude": 120.48
+      },
+      "distanceToVillage": 1530,
+      "felt": "",
+      "potential": "",
+      "shakemap": "",
+      "updatedAt": "2026-10-30T19:59:01.000Z"
+    }
+  ]
+}

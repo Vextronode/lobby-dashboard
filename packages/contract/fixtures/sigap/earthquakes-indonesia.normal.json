@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "message": "Data gempa berhasil diambil.",
+  "data": {
+    "magnitude": 5.2,
+    "depth": "33 km",
+    "location": "101 km BaratDaya KAB-SUMBA-BARAT-NTT",
+    "coordinates": {
+      "latitude": -10.31,
+      "longitude": 118.95
+    },
+    "distanceToVillage": 1120,
+    "felt": "",
+    "potential": "Tidak berpotensi tsunami",
+    "shakemap": "",
+    "updatedAt": "2026-11-02T00:05:12.000Z"
+  }
+}

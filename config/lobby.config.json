@@ -1,0 +1,58 @@
+{
+  "village_code": "CIBENDA",
+  "public_url": "https://lobby.example.id/",
+  "modules": {
+    "status": { "interval_s": 60, "max_age_s": 86400, "max_backoff_s": 120 },
+    "quake_pangandaran": { "interval_s": 60, "max_age_s": 86400, "max_backoff_s": 900 },
+    "quake_list": {
+      "interval_s": 60,
+      "max_age_s": 86400,
+      "max_backoff_s": 900,
+      "mode": "recent",
+      "limit": 9
+    },
+    "weather": { "interval_s": 900, "max_age_s": 86400, "max_backoff_s": 900 },
+    "preparedness": { "interval_s": 3600, "max_age_s": 604800, "max_backoff_s": 900 },
+    "sid_population": { "interval_s": 3600, "max_age_s": 604800, "max_backoff_s": 900 },
+    "sid_services": { "interval_s": 900, "max_age_s": 86400, "max_backoff_s": 900 },
+    "cimart": { "interval_s": 900, "max_age_s": 86400, "max_backoff_s": 900 }
+  },
+  "stale_factor": 3,
+  "awas": {
+    "evacuation_point_ids": [],
+    "max_points": 3,
+    "exit_after_syncs": 2,
+    "revoked_notice_minutes": 10
+  },
+  "cimart": { "phase1_min_products": 3, "max_products": 8, "show_photos": true },
+  "weather_icons": {
+    "Cerah": "sun",
+    "Cerah Berawan": "sun-cloud",
+    "Berawan": "cloud",
+    "Berkabut": "fog",
+    "Gerimis Ringan": "drizzle",
+    "Gerimis Sedang": "drizzle",
+    "Gerimis Lebat": "drizzle",
+    "Gerimis": "drizzle",
+    "Hujan Ringan": "rain",
+    "Hujan Sedang": "rain",
+    "Hujan Lebat": "rain-heavy",
+    "Badai Petir": "storm",
+    "Badai Petir Lebat": "storm",
+    "_default": "cloud"
+  },
+  "tips": [
+    "Siapkan tas siaga berisi dokumen penting, obat-obatan, senter, dan air minum.",
+    "Kenali jalur evakuasi dan titik kumpul terdekat dari rumah Anda.",
+    "Simpan nomor darurat desa dan BPBD di ponsel keluarga.",
+    "Jika merasakan gempa kuat di pesisir, segera menjauh dari pantai menuju tempat tinggi.",
+    "Pantau informasi resmi dari SIGAP dan perangkat desa, jangan mudah percaya kabar berantai."
+  ],
+  "app_links": [
+    { "id": "sigap", "label": "Buka SIGAP", "url": "https://sigap.example.id/" },
+    { "id": "sid", "label": "Ajukan Surat (SID)", "url": "https://sid.example.id/" },
+    { "id": "cimart", "label": "Belanja di CiMart", "url": "https://cimart.example.id/" }
+  ],
+  "operating_hours": { "start": "07:00", "end": "16:00", "days": [1, 2, 3, 4, 5] },
+  "devices": ["tv-lobby-1"]
+}

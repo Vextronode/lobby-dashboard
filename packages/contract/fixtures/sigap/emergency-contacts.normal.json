@@ -1,0 +1,42 @@
+{
+  "success": true,
+  "message": "Kontak darurat berhasil diambil.",
+  "data": [
+    {
+      "id": "contact-01",
+      "name": "Puskesmas Kecamatan",
+      "phone": "0265000102",
+      "isCore": false
+    },
+    {
+      "id": "contact-02",
+      "name": "Kantor Desa Cibenda",
+      "phone": "0265000101",
+      "isCore": true
+    },
+    {
+      "id": "contact-03",
+      "name": "BPBD Kabupaten",
+      "phone": "0265000103",
+      "isCore": true
+    },
+    {
+      "id": "contact-04",
+      "name": "Panggilan Darurat Nasional",
+      "phone": "112",
+      "isCore": true
+    },
+    {
+      "id": "contact-05",
+      "name": "Pemadam Kebakaran",
+      "phone": "0265000104",
+      "isCore": false
+    },
+    {
+      "id": "contact-06",
+      "name": "Polsek Kecamatan",
+      "phone": "0265000105",
+      "isCore": false
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "message": "Data gempa berhasil diambil.",
+  "data": {
+    "magnitude": 4.1,
+    "depth": "10 km",
+    "location": "23 km TimurLaut KAB-TASIKMALAYA-JABAR",
+    "coordinates": {
+      "latitude": -7.21,
+      "longitude": 108.36
+    },
+    "distanceToVillage": 88,
+    "felt": "",
+    "potential": "",
+    "shakemap": "",
+    "updatedAt": "2026-11-01T21:15:42.000Z"
+  }
+}

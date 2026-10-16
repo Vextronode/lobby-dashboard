@@ -1,0 +1,84 @@
+{
+  "generated_at": "2026-11-02T03:00:00Z",
+  "letters": {
+    "month": "2026-11",
+    "submitted": 42,
+    "completed": 35,
+    "in_process": 11,
+    "weekly": [
+      {
+        "week_start": "2026-08-17",
+        "submitted": 9,
+        "completed": 7
+      },
+      {
+        "week_start": "2026-08-24",
+        "submitted": 11,
+        "completed": 10
+      },
+      {
+        "week_start": "2026-08-31",
+        "submitted": 8,
+        "completed": 8
+      },
+      {
+        "week_start": "2026-09-07",
+        "submitted": 12,
+        "completed": 9
+      },
+      {
+        "week_start": "2026-09-14",
+        "submitted": 10,
+        "completed": 11
+      },
+      {
+        "week_start": "2026-09-21",
+        "submitted": 7,
+        "completed": 6
+      },
+      {
+        "week_start": "2026-09-28",
+        "submitted": 13,
+        "completed": 10
+      },
+      {
+        "week_start": "2026-10-05",
+        "submitted": 9,
+        "completed": 9
+      },
+      {
+        "week_start": "2026-10-12",
+        "submitted": 11,
+        "completed": 10
+      },
+      {
+        "week_start": "2026-10-19",
+        "submitted": 10,
+        "completed": 9
+      },
+      {
+        "week_start": "2026-10-26",
+        "submitted": 12,
+        "completed": 11
+      },
+      {
+        "week_start": "2026-11-02",
+        "submitted": 4,
+        "completed": 2
+      }
+    ],
+    "top_types": []
+  },
+  "announcements": [
+    {
+      "id": "0b6f3c1e-5d1a-4f0e-9a51-1f3d2c7e8a01",
+      "title": "Jadwal posyandu November",
+      "published_at": "2026-10-30T02:00:00Z"
+    },
+    {
+      "id": "3c2a9d47-8e6b-4b1f-a0c4-6d5e7f8a9b02",
+      "title": "Kerja bakti membersihkan saluran air",
+      "published_at": "2026-10-25T01:30:00Z"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+# Dokumen kerja lokal (spec, tiket, keputusan) — tidak dicommit
+docs/task/
+
+# Pengaturan Claude Code per mesin
+.claude/settings.local.json
+.claude/commands/
+
+# Node / build
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.vite/
+
+# Env & data lokal
+.env
+.env.*
+!.env.example
+data/
+
+# Playwright
+test-results/
+playwright-report/
+
+# OS / editor
+.DS_Store
+Thumbs.db

@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "message": "Alert terbaru berhasil diambil.",
+  "data": {
+    "id": "alert-0004",
+    "level": "RED",
+    "description": "Peringatan dini tsunami. Segera menuju titik kumpul terdekat.",
+    "createdAt": "2026-11-02T01:00:00.000Z",
+    "basis": "record",
+    "expired": false
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "message": "Alert terbaru berhasil diambil.",
+  "data": {
+    "id": "live-fallback",
+    "level": "YELLOW",
+    "description": "Gempa dirasakan di wilayah selatan Jawa Barat.",
+    "createdAt": "2026-11-02T01:00:00.000Z",
+    "basis": "live",
+    "expired": false
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-11-02T03:00:00Z",
+  "letters": {
+    "month": "2026-11",
+    "submitted": 0,
+    "completed": 0,
+    "in_process": 0,
+    "weekly": [
+      {
+        "week_start": "2026-08-17",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-08-24",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-08-31",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-09-07",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-09-14",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-09-21",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-09-28",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-10-05",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-10-12",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-10-19",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-10-26",
+        "submitted": 0,
+        "completed": 0
+      },
+      {
+        "week_start": "2026-11-02",
+        "submitted": 0,
+        "completed": 0
+      }
+    ],
+    "top_types": []
+  },
+  "announcements": []
+}

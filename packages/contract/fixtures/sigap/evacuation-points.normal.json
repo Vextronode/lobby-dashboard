@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "message": "Titik evakuasi berhasil diambil.",
+  "data": [
+    {
+      "id": "evac-01",
+      "name": "Lapangan Desa Cibenda",
+      "address": "Dusun Cibenda",
+      "isCore": true
+    },
+    {
+      "id": "evac-02",
+      "name": "Balai Desa Cibenda",
+      "address": "Kantor Desa Cibenda",
+      "isCore": true
+    },
+    {
+      "id": "evac-03",
+      "name": "Bukit Pasir Patrol",
+      "address": null,
+      "isCore": false
+    },
+    {
+      "id": "evac-04",
+      "name": "Halaman SD Negeri Cibenda",
+      "address": "Dusun Sinargalih",
+      "isCore": true
+    },
+    {
+      "id": "evac-05",
+      "name": "Lapangan Sucen",
+      "address": "Dusun Sucen",
+      "isCore": true
+    }
+  ]
+}

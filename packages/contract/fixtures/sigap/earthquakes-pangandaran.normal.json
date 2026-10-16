@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "message": "Data gempa berhasil diambil.",
+  "data": {
+    "magnitude": 4.6,
+    "depth": "18 km",
+    "location": "62 km BaratDaya PANGANDARAN-JABAR",
+    "coordinates": {
+      "latitude": -8.12,
+      "longitude": 108.21
+    },
+    "distanceToVillage": 62,
+    "felt": "III Pangandaran",
+    "potential": "Tidak berpotensi tsunami",
+    "shakemap": "",
+    "updatedAt": "2026-11-02T00:41:10.000Z"
+  }
+}

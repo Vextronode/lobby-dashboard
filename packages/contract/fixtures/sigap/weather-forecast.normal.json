@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "message": "Prakiraan cuaca berhasil diambil.",
+  "data": [
+    {
+      "date": "2026-11-02",
+      "label": "Hari ini",
+      "condition": "Cerah Berawan",
+      "temperature": 30,
+      "rainProbability": 20
+    },
+    {
+      "date": "2026-11-03",
+      "label": "Besok",
+      "condition": "Hujan Ringan",
+      "temperature": 28,
+      "rainProbability": 60
+    },
+    {
+      "date": "2026-11-04",
+      "label": "Lusa",
+      "condition": "Berawan",
+      "temperature": 29,
+      "rainProbability": 35
+    },
+    {
+      "date": "2026-11-05",
+      "label": "Kamis",
+      "condition": "Hujan Sedang",
+      "temperature": 27,
+      "rainProbability": 75
+    },
+    {
+      "date": "2026-11-06",
+      "label": "Jumat",
+      "condition": "Cerah",
+      "temperature": 31,
+      "rainProbability": 10
+    }
+  ]
+}
