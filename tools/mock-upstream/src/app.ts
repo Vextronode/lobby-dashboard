@@ -29,6 +29,18 @@ export interface MockOptions {
   readonly sleep?: (ms: number) => Promise<void>;
 }
 
+/** Image host used in the CiMart fixtures; rewritten to the mock so thumbnails work in dev and tests. */
+const FIXTURE_CIMART_STORAGE = 'https://cimart.example.id/storage/';
+
+/** 1×1 PNG served for every product image. */
+const PRODUCT_IMAGE = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=',
+  'base64',
+);
+
+/** This product's image is deliberately not an image, to exercise the thumbnail fallback (F09 R-9). */
+export const BROKEN_IMAGE_FILE = 'ikan-asin-jambal.jpg';
+
 const defaultSleep = (ms: number) =>
   new Promise<void>((resolve) => {
     setTimeout(resolve, ms);
@@ -66,12 +78,22 @@ export function createMockApp(options: MockOptions): Hono {
         redPhaseMs,
       });
       if (response.delayMs > 0) await sleep(response.delayMs);
-      return new Response(JSON.stringify(response.body), {
+      const body = JSON.stringify(response.body).replaceAll(
+        FIXTURE_CIMART_STORAGE,
+        `${new URL(c.req.url).origin}/cimart/storage/`,
+      );
+      return new Response(body, {
         status: response.status,
         headers: { 'content-type': 'application/json' },
       });
     });
   }
+
+  app.get('/cimart/storage/products/:file', (c) =>
+    c.req.param('file') === BROKEN_IMAGE_FILE
+      ? c.body('not an image', 200, { 'content-type': 'image/jpeg' })
+      : c.body(PRODUCT_IMAGE, 200, { 'content-type': 'image/png' }),
+  );
 
   return app;
 }
