@@ -21,11 +21,14 @@ export const cimartProductSchema = z.object({
   url: z.url(),
 });
 
-/** `GET /api/public/lobby-summary` (CIMART-01 FR-6). CiMart sends at most 10 products (F09 R-1). */
+/**
+ * `GET /api/public/lobby-summary` (CIMART-01 FR-6). CiMart sends at most 10 products (F09 R-1); no
+ * `max` here so a longer list is trimmed by Lobby (F09 R-2) instead of failing the whole module.
+ */
 export const cimartSummarySchema = z.object({
   generated_at: isoDateTimeSchema,
   stats: z.object({ active_stores: countSchema, available_products: countSchema }),
-  featured_products: z.array(cimartProductSchema).max(10),
+  featured_products: z.array(cimartProductSchema),
 });
 
 export type CimartError = z.infer<typeof cimartErrorSchema>;

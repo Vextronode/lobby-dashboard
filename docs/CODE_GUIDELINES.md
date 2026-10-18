@@ -124,7 +124,7 @@ Hindari singkatan kecuali yang umum (`id`, `url`, `api`). Nama yang lebih panjan
 
 ## 12. Git, commit, dan PR
 
-1. Satu branch per tiket: `feat/<ticket-id>-<ringkas>`, mis. `feat/sid-01-population-summary`.
+1. Satu branch per tiket: `feature/<ticket-id>-<ringkas>`, mis. `feature/sid-01-population-summary`; perbaikan bug memakai `fix/<ringkas>`. Branch dibuat dari `dev` dan PR ditujukan ke `dev` (template PR repo).
 2. Commit kecil dan bermakna, format Conventional Commits dengan ID tiket: `feat(sid): add lobby population endpoint [SID-01]`. Tipe: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`.
 3. PR merujuk tiket, berisi ringkasan, cara menguji, dan bagian Laporan tiket yang sudah diisi. PR tidak mencampur refactor besar dengan fitur.
 4. CI hijau (lint, typecheck/pint/phpstan bila ada, test, build) sebelum review.

@@ -24,8 +24,8 @@ const PATHS = {
   weather: '/sigap/api/public/weather/forecast',
   evacuation: '/sigap/api/public/evacuation-points',
   contacts: '/sigap/api/public/emergency-contacts',
-  population: '/sid/api/public/lobby/population?village_code=CIBENDA',
-  services: '/sid/api/public/lobby/services?village_code=CIBENDA',
+  population: '/sid/api/public/lobby/population?village_code=3218032001',
+  services: '/sid/api/public/lobby/services?village_code=3218032001',
   cimart: '/cimart/api/public/lobby-summary',
 } as const;
 

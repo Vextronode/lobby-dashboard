@@ -16,5 +16,9 @@
   "devDependencies": {
     "tsx": "4.23.15",
     "zod": "4.6.5"
+  },
+  "exports": {
+    "./app": "./src/app.ts",
+    "./scenarios": "./src/scenarios.ts"
   }
 }

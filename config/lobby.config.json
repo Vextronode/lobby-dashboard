@@ -1,5 +1,5 @@
 {
-  "village_code": "CIBENDA",
+  "village_code": "3218032001",
   "public_url": "https://lobby.example.id/",
   "modules": {
     "status": { "interval_s": 60, "max_age_s": 86400, "max_backoff_s": 120 },

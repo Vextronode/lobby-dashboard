@@ -5,3 +5,5 @@ export * from './upstream/cimart';
 export * from './lobby/envelope';
 export * from './lobby/status';
 export * from './lobby/content';
+export * from './lobby/policy-state';
+export * from './lobby/meta';
