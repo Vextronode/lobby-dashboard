@@ -57,8 +57,12 @@ export const evacPointSchema = z.object({
   address: z.string().nullable(),
 });
 
-/** Emergency contact (institution), `isCore` first, max 4 (F02 R-7). */
-export const contactSchema = z.object({ id: z.string(), name: z.string(), phone: z.string() });
+/** Emergency contact (institution + number), `isCore` first, max 4 (F02 R-7). */
+export const contactSchema = z.object({
+  id: z.string(),
+  institution: z.string(),
+  phone_number: z.string(),
+});
 
 export const preparednessSchema = z.object({
   evacuation_points: z.array(evacPointSchema),

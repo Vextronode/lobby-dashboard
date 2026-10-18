@@ -6,12 +6,13 @@ Kiosk website untuk TV lobby Kantor Desa Cibenda (1280×720, read-only) + halama
 
 | Dokumen | Isi | Status |
 |---|---|---|
-| `docs/task/specs/` | Spec per fitur F01–F14: aturan perilaku `R-n`, state, AC `AC-Fxx-n` | **Sumber kebenaran perilaku** |
+| `docs/specs/` | Spec per fitur F01–F14: aturan perilaku `R-n`, state, AC `AC-Fxx-n` (salinan tercommit dari `docs/task/specs/`) | **Sumber kebenaran perilaku** |
 | `docs/task/tickets/` | Tiket per repo: lokasi kode, kontrak, test teknis, bagian Laporan | Unit kerja |
 | `docs/task/tickets/README.md` | Daftar tiket, dependensi, urutan gelombang, templat Laporan | Indeks |
-| `docs/task/04-code-guidelines.md` | Code guidelines + checklist review (§14) | Wajib diikuti |
+| `docs/CODE_GUIDELINES.md` | Code guidelines + checklist review (§14) (salinan tercommit dari `docs/task/04-code-guidelines.md`) | Wajib diikuti |
 | `docs/task/03-struktur-folder.md` | Struktur monorepo dan arah dependensi | Wajib diikuti |
 | `docs/task/02-keputusan-final.md` | Keputusan produk `K-A*`, `K-N*` | Rujukan |
+| `docs/task/audit/` | Hasil audit read-only sistem inti (bentuk endpoint asli) | Rujukan kontrak upstream |
 
 Prioritas jika ada konflik: keamanan & privasi (guidelines §2) → spec → tiket → guidelines lainnya. Jika dokumen bertentangan dengan kode yang ada, **berhenti dan laporkan**, jangan menebak.
 

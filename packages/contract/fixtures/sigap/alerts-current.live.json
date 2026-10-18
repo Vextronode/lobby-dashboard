@@ -5,7 +5,15 @@
     "id": "live-fallback",
     "level": "YELLOW",
     "description": "Gempa dirasakan di wilayah selatan Jawa Barat.",
+    "source": "BMKG",
+    "location": null,
+    "shakemap": null,
+    "reviewStatus": "Belum Diverifikasi",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "reviewer": null,
     "createdAt": "2026-11-02T01:00:00.000Z",
+    "updatedAt": "2026-11-02T01:00:00.000Z",
     "basis": "live",
     "expired": false
   }

@@ -5,7 +5,15 @@
     "id": "alert-0002",
     "level": "YELLOW",
     "description": "Curah hujan tinggi diprakirakan sore hingga malam. Waspadai genangan dan longsor kecil.",
+    "source": "BMKG",
+    "location": null,
+    "shakemap": null,
+    "reviewStatus": "Belum Diverifikasi",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "reviewer": null,
     "createdAt": "2026-11-02T01:00:00.000Z",
+    "updatedAt": "2026-11-02T01:00:00.000Z",
     "basis": "record",
     "expired": false
   }

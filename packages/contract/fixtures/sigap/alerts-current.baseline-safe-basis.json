@@ -5,7 +5,15 @@
     "id": "baseline-safe",
     "level": "GREEN",
     "description": "Kondisi wilayah Desa Cibenda aman dan kondusif.",
+    "source": "BMKG",
+    "location": null,
+    "shakemap": null,
+    "reviewStatus": "Belum Diverifikasi",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "reviewer": null,
     "createdAt": "2026-11-02T01:00:00.000Z",
+    "updatedAt": "2026-11-02T01:00:00.000Z",
     "basis": "fallback",
     "expired": false
   }

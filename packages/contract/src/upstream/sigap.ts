@@ -1,16 +1,19 @@
 import { z } from 'zod';
 import { isoDateSchema, isoDateTimeSchema } from '../common';
 
-// ASSUMPTION: the SIGAP audit (16 Oct) report is not in this repo. Shapes below are inferred from
-// SIGAP-01 and specs F01, F02, F04, F05. Objects are loose so unknown SIGAP fields do not fail
-// validation; only fields Lobby reads are required. Verify against SIGAP before LOBBY-05.
+// Shapes follow the SIGAP audit of 16 Oct (`docs/task/audit/sigap.md`) plus the fields SIGAP-01 adds.
+// Schemas list only the fields Lobby reads. Plain (stripping) objects drop everything else, e.g. the
+// alert `reviewer`/`reviewedBy`, so an officer's name can never reach Lobby clients (guidelines §2.3).
 
 /** Standard SIGAP success envelope `{ success, message, data }`. */
 export function sigapEnvelopeSchema<T extends z.ZodType>(data: T) {
   return z.object({ success: z.literal(true), message: z.string(), data });
 }
 
-/** Standard SIGAP error envelope `{ success: false, message, errors? }`. */
+/**
+ * Standard SIGAP error envelope. `errors` is usually `string[]`, but the global 404 handler sends
+ * `errors: {}` (audit §6), so it is not narrowed.
+ */
 export const sigapErrorSchema = z.object({
   success: z.literal(false),
   message: z.string(),
@@ -21,11 +24,12 @@ export const sigapErrorSchema = z.object({
 export const sigapAlertBasisSchema = z.enum(['record', 'live', 'fallback']);
 
 /**
- * `GET /api/public/alerts/current` data.
+ * `GET /api/public/alerts/current` data: always one object, the latest alert (audit §1).
+ * `id` is a UUID, `"live-fallback"`, or `"baseline-safe"` (K-N1).
  * `level` is any string on purpose: values outside GREEN/YELLOW/ORANGE/RED must become UNKNOWN
  * (F01 R-2), not a schema failure that would keep showing an older level.
  */
-export const sigapAlertSchema = z.looseObject({
+export const sigapAlertSchema = z.object({
   id: z.string(),
   level: z.string(),
   description: z.string().nullish(),
@@ -34,22 +38,26 @@ export const sigapAlertSchema = z.looseObject({
   expired: z.boolean().optional(),
 });
 
-// ASSUMPTION: `data: null` is accepted so an empty answer maps to UNKNOWN (F01 R-2) at once.
+// The audit found no `data: null` path; it is still accepted so an empty answer maps to UNKNOWN
+// (F01 R-2) at once instead of failing validation.
 export const sigapAlertResponseSchema = sigapEnvelopeSchema(sigapAlertSchema.nullable());
 
 /** Scope tag SIGAP may attach to items of `earthquakes/recent` (SIGAP-01 FR-B5, optional). */
 export const sigapQuakeScopeSchema = z.enum(['west-java', 'indonesia']);
 
-/** `EarthquakeInfo` (SIGAP `earthquake.types.ts`, example in SIGAP-01). */
-export const sigapEarthquakeSchema = z.looseObject({
+/**
+ * `EarthquakeInfo` (SIGAP `earthquake.types.ts:37`). Events have no ID (audit §2); `updatedAt` is
+ * the BMKG event time in UTC. `felt` and `shakemap` are not read by Lobby.
+ */
+export const sigapEarthquakeSchema = z.object({
   magnitude: z.number(),
+  /** Raw BMKG string, e.g. "18 km". */
   depth: z.string(),
   location: z.string(),
   coordinates: z.object({ latitude: z.number(), longitude: z.number() }),
+  /** Whole kilometres from Cibenda, computed by SIGAP (K-N15). */
   distanceToVillage: z.number(),
-  felt: z.string(),
   potential: z.string(),
-  shakemap: z.string(),
   updatedAt: isoDateTimeSchema,
   scopes: z.array(sigapQuakeScopeSchema).optional(),
 });
@@ -60,8 +68,11 @@ export const sigapLatestQuakeResponseSchema = sigapEnvelopeSchema(sigapEarthquak
 /** `earthquakes/recent?scope=…&limit=…` (SIGAP-01 §B): list, `[]` when there are none. */
 export const sigapRecentQuakesResponseSchema = sigapEnvelopeSchema(z.array(sigapEarthquakeSchema));
 
-/** One daily item of `weather/forecast` (F04, K-N14). `condition` is one of 13 SIGAP values. */
-export const sigapWeatherDaySchema = z.looseObject({
+/**
+ * One daily item of `weather/forecast`: Open-Meteo, 5 days, `Asia/Jakarta` dates (audit §3).
+ * `condition` is one of 13 fixed values (K-N14); `label` ("Hari Ini", "Besok", …) is ignored (F04 R-2).
+ */
+export const sigapWeatherDaySchema = z.object({
   date: isoDateSchema,
   label: z.string().optional(),
   condition: z.string(),
@@ -71,8 +82,8 @@ export const sigapWeatherDaySchema = z.looseObject({
 
 export const sigapWeatherResponseSchema = sigapEnvelopeSchema(z.array(sigapWeatherDaySchema));
 
-/** `evacuation-points` item (F02 R-6). */
-export const sigapEvacuationPointSchema = z.looseObject({
+/** `evacuation-points` item (F02 R-6). SIGAP orders by `isCore` desc, then `createdAt` asc. */
+export const sigapEvacuationPointSchema = z.object({
   id: z.string(),
   name: z.string(),
   address: z.string().nullish(),
@@ -83,11 +94,11 @@ export const sigapEvacuationPointsResponseSchema = sigapEnvelopeSchema(
   z.array(sigapEvacuationPointSchema),
 );
 
-/** `emergency-contacts` item (F02 R-7): institution name and its public phone number. */
-export const sigapEmergencyContactSchema = z.looseObject({
+/** `emergency-contacts` item (F02 R-7): an institution and its public number, no person data. */
+export const sigapEmergencyContactSchema = z.object({
   id: z.string(),
-  name: z.string(),
-  phone: z.string(),
+  institution: z.string(),
+  phoneNumber: z.string(),
   isCore: z.boolean(),
 });
 

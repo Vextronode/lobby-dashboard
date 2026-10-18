@@ -1,42 +1,60 @@
 {
   "success": true,
-  "message": "Kontak darurat berhasil diambil.",
+  "message": "Daftar kontak darurat berhasil diambil.",
   "data": [
     {
-      "id": "contact-01",
-      "name": "Puskesmas Kecamatan",
-      "phone": "0265000102",
-      "isCore": false
-    },
-    {
       "id": "contact-02",
-      "name": "Kantor Desa Cibenda",
-      "phone": "0265000101",
-      "isCore": true
+      "institution": "Kantor Desa Cibenda",
+      "phoneNumber": "0265000101",
+      "isCore": true,
+      "icon": null,
+      "createdAt": "2026-09-01T02:00:00.000Z",
+      "updatedAt": "2026-09-01T02:00:00.000Z"
     },
     {
       "id": "contact-03",
-      "name": "BPBD Kabupaten",
-      "phone": "0265000103",
-      "isCore": true
+      "institution": "BPBD Kabupaten",
+      "phoneNumber": "0265000103",
+      "isCore": true,
+      "icon": null,
+      "createdAt": "2026-09-01T02:01:00.000Z",
+      "updatedAt": "2026-09-01T02:01:00.000Z"
     },
     {
       "id": "contact-04",
-      "name": "Panggilan Darurat Nasional",
-      "phone": "112",
-      "isCore": true
+      "institution": "Panggilan Darurat Nasional",
+      "phoneNumber": "112",
+      "isCore": true,
+      "icon": null,
+      "createdAt": "2026-09-01T02:02:00.000Z",
+      "updatedAt": "2026-09-01T02:02:00.000Z"
+    },
+    {
+      "id": "contact-01",
+      "institution": "Puskesmas Kecamatan",
+      "phoneNumber": "0265000102",
+      "isCore": false,
+      "icon": null,
+      "createdAt": "2026-09-01T02:03:00.000Z",
+      "updatedAt": "2026-09-01T02:03:00.000Z"
     },
     {
       "id": "contact-05",
-      "name": "Pemadam Kebakaran",
-      "phone": "0265000104",
-      "isCore": false
+      "institution": "Pemadam Kebakaran",
+      "phoneNumber": "0265000104",
+      "isCore": false,
+      "icon": null,
+      "createdAt": "2026-09-01T02:04:00.000Z",
+      "updatedAt": "2026-09-01T02:04:00.000Z"
     },
     {
       "id": "contact-06",
-      "name": "Polsek Kecamatan",
-      "phone": "0265000105",
-      "isCore": false
+      "institution": "Polsek Kecamatan",
+      "phoneNumber": "0265000105",
+      "isCore": false,
+      "icon": null,
+      "createdAt": "2026-09-01T02:05:00.000Z",
+      "updatedAt": "2026-09-01T02:05:00.000Z"
     }
   ]
 }

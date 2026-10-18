@@ -1,10 +1,10 @@
 {
   "success": true,
-  "message": "Prakiraan cuaca berhasil diambil.",
+  "message": "Forecast retrieved successfully.",
   "data": [
     {
       "date": "2026-11-02",
-      "label": "Hari ini",
+      "label": "Hari Ini",
       "condition": "Cerah Berawan",
       "temperature": 30,
       "rainProbability": 20
@@ -18,7 +18,7 @@
     },
     {
       "date": "2026-11-04",
-      "label": "Lusa",
+      "label": "Rabu",
       "condition": "Berawan",
       "temperature": 29,
       "rainProbability": 35

@@ -1,4 +1,5 @@
 {
   "success": false,
-  "message": "Endpoint tidak ditemukan."
+  "message": "Endpoint tidak ditemukan.",
+  "errors": {}
 }

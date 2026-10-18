@@ -1,5 +1,5 @@
 {
   "success": true,
-  "message": "Data gempa berhasil diambil.",
+  "message": "Tidak ditemukan gempa Pangandaran atau wilayah sekitar pada daftar BMKG terbaru.",
   "data": null
 }

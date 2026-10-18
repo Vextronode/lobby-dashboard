@@ -1,5 +1,5 @@
 {
   "success": true,
-  "message": "Prakiraan cuaca berhasil diambil.",
+  "message": "Forecast retrieved successfully.",
   "data": []
 }

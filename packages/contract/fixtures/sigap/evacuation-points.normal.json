@@ -1,36 +1,76 @@
 {
   "success": true,
-  "message": "Titik evakuasi berhasil diambil.",
+  "message": "Daftar titik evakuasi berhasil diambil.",
   "data": [
     {
       "id": "evac-01",
       "name": "Lapangan Desa Cibenda",
       "address": "Dusun Cibenda",
-      "isCore": true
+      "latitude": -7.681,
+      "longitude": 108.561,
+      "elevation": null,
+      "capacity": null,
+      "description": null,
+      "facilities": [],
+      "isCore": true,
+      "createdAt": "2026-09-01T02:00:00.000Z",
+      "updatedAt": "2026-09-01T02:00:00.000Z"
     },
     {
       "id": "evac-02",
       "name": "Balai Desa Cibenda",
       "address": "Kantor Desa Cibenda",
-      "isCore": true
-    },
-    {
-      "id": "evac-03",
-      "name": "Bukit Pasir Patrol",
-      "address": null,
-      "isCore": false
+      "latitude": -7.683,
+      "longitude": 108.559,
+      "elevation": null,
+      "capacity": null,
+      "description": null,
+      "facilities": [],
+      "isCore": true,
+      "createdAt": "2026-09-01T02:05:00.000Z",
+      "updatedAt": "2026-09-01T02:05:00.000Z"
     },
     {
       "id": "evac-04",
       "name": "Halaman SD Negeri Cibenda",
       "address": "Dusun Sinargalih",
-      "isCore": true
+      "latitude": -7.676,
+      "longitude": 108.566,
+      "elevation": null,
+      "capacity": null,
+      "description": null,
+      "facilities": [],
+      "isCore": true,
+      "createdAt": "2026-09-02T03:00:00.000Z",
+      "updatedAt": "2026-09-02T03:00:00.000Z"
     },
     {
       "id": "evac-05",
       "name": "Lapangan Sucen",
       "address": "Dusun Sucen",
-      "isCore": true
+      "latitude": -7.691,
+      "longitude": 108.552,
+      "elevation": null,
+      "capacity": null,
+      "description": null,
+      "facilities": [],
+      "isCore": true,
+      "createdAt": "2026-09-03T03:00:00.000Z",
+      "updatedAt": "2026-09-03T03:00:00.000Z"
+    },
+    {
+      "id": "evac-03",
+      "name": "Bukit Pasir Patrol",
+      "address": null,
+      "latitude": -7.698,
+      "longitude": 108.571,
+      "elevation": null,
+      "capacity": null,
+      "description": null,
+      "facilities": [],
+      "isCore": false,
+      "createdAt": "2026-09-01T02:10:00.000Z",
+      "updatedAt": "2026-09-01T02:10:00.000Z"
     }
   ]
 }

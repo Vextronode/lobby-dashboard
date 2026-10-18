@@ -256,6 +256,15 @@ describe('whitelist parsing (guidelines §2.2)', () => {
     expect(collectKeys(parsed)).not.toContain('address');
   });
 
+  it('strips SIGAP alert reviewer fields (officer names)', () => {
+    const withReviewer = mutated('sigap/alerts-current.orange.json', (f) => {
+      Object.assign(asRecord(f.data), { reviewedBy: 'user-1', reviewer: { name: 'Petugas' } });
+    });
+    const keys = collectKeys(sigapAlertResponseSchema.parse(withReviewer));
+    expect(keys).not.toContain('reviewer');
+    expect(keys).not.toContain('reviewedBy');
+  });
+
   it('keeps an unknown SIGAP level so the policy can treat it as UNKNOWN (F01 R-2)', () => {
     const withUnknownLevel = mutated('sigap/alerts-current.green.json', (f) => {
       asRecord(f.data).level = 'PURPLE';
