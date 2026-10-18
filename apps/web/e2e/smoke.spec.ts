@@ -17,7 +17,10 @@ test.describe('pnpm dev smoke (LOBBY-01 AC-2)', () => {
 
   test('aggregator /healthz returns 200', async ({ request }) => {
     await expect
-      .poll(async () => (await request.get(AGGREGATOR_HEALTHZ).catch(() => null))?.status())
+      .poll(async () => (await request.get(AGGREGATOR_HEALTHZ).catch(() => null))?.status(), {
+        // The aggregator (tsx watch) can start after Vite, which Playwright waits for.
+        timeout: 30_000,
+      })
       .toBe(200);
     expect(await (await request.get(AGGREGATOR_HEALTHZ)).json()).toEqual({ ok: true });
   });

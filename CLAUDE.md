@@ -44,4 +44,4 @@ pnpm e2e        # Playwright (screenshot per skenario)
 - `/verify-ticket <ID>`: cek ulang semua AC tiket + AC spec dengan bukti.
 - `/review-ticket <ID>`: review perubahan terhadap guidelines §14 sebelum PR.
 
-Konvensi git: branch `feat/<ticket-id-lowercase>-<ringkas>`, commit Conventional Commits dengan ID tiket, mis. `feat(aggregator): add status policy [LOBBY-02]`.
+Konvensi git (mengikuti `.github/pull_request_template.md`): branch `feature/<ticket-id-lowercase>-<ringkas>` untuk fitur atau `fix/<ringkas>` untuk bug, dibuat dari `dev`, dan PR ditujukan ke `dev` (bukan `main`). Commit memakai Conventional Commits dengan ID tiket, mis. `feat(aggregator): add status policy [LOBBY-02]`.
