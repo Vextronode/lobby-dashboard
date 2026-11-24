@@ -1,0 +1,333 @@
+.card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.cardHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.cardIcon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.cardTitle {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.cardHeaderMeta {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Status Card Specific Colors (F01) */
+.statusGreen {
+  background-color: #032e22;
+  border-color: #065f46;
+}
+
+.statusYellow {
+  background-color: #3b2204;
+  border-color: #b45309;
+}
+
+.statusOrange {
+  background-color: #43170a;
+  border-color: #c2410c;
+}
+
+.statusRed {
+  background-color: #450a0a;
+  border-color: #b91c1c;
+}
+
+.statusUnknown {
+  background-color: var(--color-bg-surface);
+  border-color: var(--color-border);
+}
+
+.statusLevelBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.statusReason {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-top: var(--space-sm);
+}
+
+.statusNoticeText {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-xs);
+}
+
+/* Quake Card (F05) */
+.quakeRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+}
+
+.quakeMagnitude {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #38bdf8;
+}
+
+.quakeDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quakeLocation {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.quakeMeta {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.quakeMuted {
+  opacity: 0.6;
+}
+
+/* Weather Card (F04) */
+.weatherSlide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+}
+
+.weatherDayLabel {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.weatherCondition {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.weatherTemp {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+}
+
+.weatherRain {
+  font-size: 11px;
+  color: #38bdf8;
+}
+
+/* Quake List (F06) */
+.quakeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.quakeTable tr {
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.quakeTable td {
+  padding: 4px 0;
+  font-size: 11px;
+}
+
+.quakeTag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 9px;
+  font-weight: 700;
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-secondary);
+}
+
+.quakeTagJabar {
+  background-color: #0369a1;
+  color: #e0f2fe;
+}
+
+/* Population (F07) */
+.popGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.popItem {
+  background-color: var(--color-bg-surface-elevated);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.popItemValue {
+  font-size: 18px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+}
+
+.popItemLabel {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+/* Letters KPI & Trend (F08) */
+.kpiRow {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.kpiBox {
+  flex: 1;
+  background-color: var(--color-bg-surface-elevated);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.kpiValue {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+}
+
+.kpiLabel {
+  font-size: 10px;
+  color: var(--color-text-secondary);
+}
+
+.trendChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 40px;
+  padding-top: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.trendBar {
+  flex: 1;
+  background-color: #38bdf8;
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+}
+
+/* CiMart (F09) */
+.cimartProduct {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.cimartThumb {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background-color: var(--color-bg-subtle);
+}
+
+.cimartThumbFallback {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.cimartInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cimartName {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.cimartPrice {
+  font-size: 15px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #38bdf8;
+}
+
+.cimartShop {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.placeholderText {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-lg) 0;
+}

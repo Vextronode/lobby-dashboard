@@ -45,3 +45,14 @@ pnpm e2e        # Playwright (screenshot per skenario)
 - `/review-ticket <ID>`: review perubahan terhadap guidelines §14 sebelum PR.
 
 Konvensi git (mengikuti `.github/pull_request_template.md`): branch `feature/<ticket-id-lowercase>-<ringkas>` untuk fitur atau `fix/<ringkas>` untuk bug, dibuat dari `dev`, dan PR ditujukan ke `dev` (bukan `main`). Commit memakai Conventional Commits dengan ID tiket, mis. `feat(aggregator): add status policy [LOBBY-02]`.
+
+<!-- antislop:start -->
+## antislop
+For UI, copy, people, mobile layout, or code comments work, read `antislop.md` (core) and then the skill for the task:
+- UI / visual: `skills/antislop-ui/SKILL.md`
+- Copy & text: `skills/antislop-copywriting/SKILL.md`
+- People: `skills/antislop-human/SKILL.md`
+- Mobile / responsive: `skills/antislop-layoutmobile/SKILL.md`
+- Code comments: `skills/antislop-code/SKILL.md`
+Before starting, ask the user when antislop applies: during the work, or after it is done.
+<!-- antislop:end -->

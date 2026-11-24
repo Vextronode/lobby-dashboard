@@ -67,3 +67,49 @@ export function wibMinutesOfDay(instant: Date): number {
   const { hour, minute } = wibClock(instant);
   return hour * MINUTES_PER_HOUR + minute;
 }
+
+const INDONESIA_MONTHS: readonly string[] = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'Mei',
+  'Jun',
+  'Jul',
+  'Agu',
+  'Sep',
+  'Okt',
+  'Nov',
+  'Des',
+];
+
+const INDONESIA_DAYS: readonly string[] = [
+  '',
+  'Senin',
+  'Selasa',
+  'Rabu',
+  'Kamis',
+  'Jumat',
+  'Sabtu',
+  'Minggu',
+];
+
+/** Indonesian formatted date in WIB, e.g. "16 Okt 2026". */
+export function formatWibDateId(instant: Date): string {
+  const dateStr = wibDateString(instant);
+  const parts = dateStr.split('-');
+  const year = parts[0] ?? '';
+  const monthIdx = Number(parts[1] ?? 1) - 1;
+  const day = Number(parts[2] ?? 1);
+  const monthName = INDONESIA_MONTHS[monthIdx] ?? '';
+  return `${day.toString()} ${monthName} ${year}`.trim();
+}
+
+/** Full Indonesian formatted date & time in WIB (F05 R-4), e.g. "Kamis, 16 Okt 2026 · 14.05 WIB". */
+export function formatWibDateTimeId(instant: Date): string {
+  const { weekday } = wibClock(instant);
+  const dayName = INDONESIA_DAYS[weekday] ?? '';
+  const dateText = formatWibDateId(instant);
+  const timeText = formatWibTime(instant);
+  return `${dayName}, ${dateText} · ${timeText} WIB`;
+}
