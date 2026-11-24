@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+:root {
+  /* Dimensions */
+  --tv-width: 1280px;
+  --tv-height: 720px;
+
+  /* Civic palette */
+  --color-bg-canvas: #f1f5f9;
+  --color-bg-surface: #ffffff;
+  --color-bg-surface-elevated: #f8fafc;
+  --color-bg-subtle: #e2e8f0;
+  --color-bg-badge-blue: #eff6ff;
+
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+  --color-border-focus: #3b82f6;
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --color-text-accent: #2563eb;
+
+  /* Status colors (F01/F02) */
+  --color-status-green: #15803d;
+  --color-status-green-bg: #f0fdf4;
+  --color-status-green-border: #bbf7d0;
+
+  --color-status-yellow: #a16207;
+  --color-status-yellow-bg: #fefce8;
+  --color-status-yellow-border: #fef08a;
+
+  --color-status-orange: #c2410c;
+  --color-status-orange-bg: #fff7ed;
+  --color-status-orange-border: #fed7aa;
+
+  --color-status-red: #b91c1c;
+  --color-status-red-bg: #fef2f2;
+  --color-status-red-border: #fecaca;
+
+  --color-status-unknown: #475569;
+  --color-status-unknown-bg: #f8fafc;
+  --color-status-unknown-border: #cbd5e1;
+
+  /* Typography */
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Elevation Shadows */
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+}

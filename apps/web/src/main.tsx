@@ -3,12 +3,17 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { MobileScreen } from './mobile/MobileScreen';
 import { routeFor, type Route } from './route';
+import { TvErrorBoundary } from './tv/recovery/TvErrorBoundary';
 import { TvScreen } from './tv/TvScreen';
 
 function Screen({ route }: { route: Route }) {
   switch (route) {
     case 'tv':
-      return <TvScreen />;
+      return (
+        <TvErrorBoundary>
+          <TvScreen />
+        </TvErrorBoundary>
+      );
     case 'mobile':
       return <MobileScreen />;
     default:

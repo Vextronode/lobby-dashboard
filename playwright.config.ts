@@ -1,4 +1,31 @@
+import fs from 'node:fs';
 import { defineConfig, devices } from '@playwright/test';
+
+// NixOS support for Chromium headless shell
+if (
+  process.platform === 'linux' &&
+  process.env.NIX_LD_LIBRARY_PATH &&
+  !process.env.NIX_LD_LIBRARY_PATH.includes('libgbm')
+) {
+  try {
+    const mesaDirs = fs
+      .readdirSync('/nix/store')
+      .filter((f) => f.includes('mesa-libgbm') && !f.endsWith('.drv'));
+    for (const dir of mesaDirs) {
+      const libPath = `/nix/store/${dir}/lib/libgbm.so.1`;
+      if (fs.existsSync(libPath)) {
+        const header = fs.readFileSync(libPath);
+        if (header[4] === 2) {
+          // 64-bit ELF
+          process.env.NIX_LD_LIBRARY_PATH = `${process.env.NIX_LD_LIBRARY_PATH}:/nix/store/${dir}/lib`;
+          break;
+        }
+      }
+    }
+  } catch {
+    // Ignore if /nix/store is not accessible
+  }
+}
 
 const WEB_URL = 'http://localhost:5173';
 const isCi = process.env.CI !== undefined;

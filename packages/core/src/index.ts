@@ -27,10 +27,19 @@ export {
 } from './status-policy';
 export {
   daysBetween,
+  formatWibDateId,
+  formatWibDateTimeId,
   formatWibTime,
   WIB_TIME_ZONE,
   wibClock,
   wibDateString,
   wibMinutesOfDay,
 } from './time';
+export {
+  BEAT_INTERVAL_MS,
+  calculateBeat,
+  calculateSlideIndex,
+  resolveSlideCount,
+} from './rotation';
+export { buildTicker, type BuildTickerInput, type TickerAnnouncement } from './ticker';
 export { selectForecastDays, weatherIconFor, type WeatherIconMap } from './weather';
