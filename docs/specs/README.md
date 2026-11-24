@@ -12,6 +12,8 @@ Aturan pembagian supaya tidak ada dua sumber yang saling bertentangan:
 
 Jika spec dan tiket berbeda, **spec yang benar**, dan tiketnya harus diperbaiki.
 
+> Untuk rangkuman menyeluruh dan peta keterkaitan seluruh fitur dalam satu dokumen, lihat [Rangkuman Spesifikasi (F01–F14)](../RANGKUMAN_SPECS.md).
+
 ## Daftar spec
 
 | ID | Fitur | Tiket yang mengimplementasikan |
