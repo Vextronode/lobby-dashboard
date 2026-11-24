@@ -1,3 +1,24 @@
+import type { AppLinkId } from '@lobby/contract';
+
+export interface MobileCopy {
+  readonly title: string;
+  readonly subtitle: string;
+  readonly refreshButton: string;
+  readonly refreshing: string;
+  readonly lastUpdated: (time: string) => string;
+  readonly emergencyTitle: string;
+  readonly evacuationTitle: string;
+  readonly contactsTitle: string;
+  readonly followVillageStaff: string;
+  readonly weatherQuakeTitle: string;
+  readonly announcementTitle: string;
+  readonly appsTitle: string;
+  readonly appsSubtitle: string;
+  readonly appDescriptions: Readonly<Record<AppLinkId, string>>;
+  readonly directCall: string;
+  readonly openApp: string;
+}
+
 /**
  * Centralized resident-facing copy in Bahasa Indonesia (guidelines §1.5, §3).
  * Antislop compliant: No em dashes, natural wording, clear civic clarity.
@@ -106,7 +127,25 @@ export const copy = {
   },
   mobile: {
     title: 'Lobby Desa Cibenda',
-    placeholder: 'Halaman informasi desa sedang disiapkan.',
+    subtitle: 'Kecamatan Parigi, Kabupaten Pangandaran',
+    refreshButton: 'Perbarui',
+    refreshing: 'Memperbarui…',
+    lastUpdated: (time: string) => `Diperbarui ${time} WIB`,
+    emergencyTitle: 'STATUS AWAS',
+    evacuationTitle: 'Titik Kumpul Evakuasi',
+    contactsTitle: 'Kontak Darurat',
+    followVillageStaff: 'Ikuti arahan petugas desa',
+    weatherQuakeTitle: 'Cuaca & Gempa Terkini',
+    announcementTitle: 'Pengumuman Resmi Desa',
+    appsTitle: 'Portal Aplikasi Desa',
+    appsSubtitle: 'Akses cepat 3 aplikasi digital terintegrasi warga Desa Cibenda.',
+    appDescriptions: {
+      sigap: 'Sistem Mitigasi & Peringatan Dini Bencana Pesisir BMKG.',
+      sid: 'Layanan Administrasi & Pengajuan Surat Mandiri Warga.',
+      cimart: 'Pasar Online & Promosi Produk UMKM Warga Cibenda.',
+    },
+    directCall: 'Telepon',
+    openApp: 'Buka Layanan',
   },
   common: {
     loading: 'Memuat…',

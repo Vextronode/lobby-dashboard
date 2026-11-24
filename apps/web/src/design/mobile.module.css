@@ -1,0 +1,669 @@
+/* Mobile Portal Stylesheet (F11, Antislop compliant) */
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 16px 14px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.brandTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.brandSubtitle {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Tap target >= 48x48px */
+.refreshButton {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-surface-elevated);
+  color: var(--color-text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.refreshButton:hover:not(:disabled) {
+  background-color: var(--color-bg-subtle);
+  border-color: #cbd5e1;
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.refreshSpinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-text-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* General Card Layout */
+.card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cardSubtitle {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Emergency Red Banner (F02 on Mobile) */
+.emergencyBanner {
+  background-color: #fef2f2;
+  border: 2px solid #ef4444;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.emergencyHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emergencyBadge {
+  background-color: #dc2626;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.emergencyTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #991b1b;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.emergencyReason {
+  font-size: 13px;
+  color: #7f1d1d;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.emergencySection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.emergencySectionTitle {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #991b1b;
+  margin: 0;
+}
+
+.evacList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.evacItem {
+  background-color: #ffffff;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+
+.evacName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.evacAddress {
+  font-size: 11px;
+  color: #4b5563;
+  margin-top: 2px;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* Tap target >= 48px for emergency contacts */
+.contactButton {
+  min-height: 48px;
+  padding: 10px 14px;
+  background-color: #dc2626;
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease;
+}
+
+.contactButton:hover {
+  background-color: #b91c1c;
+}
+
+.contactNumber {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* Status Card (Non-Awas) */
+.statusCard {
+  border-left: 4px solid var(--color-border);
+}
+
+.statusCardGreen {
+  border-left-color: var(--color-status-green);
+  background: linear-gradient(to right, var(--color-status-green-bg), var(--color-bg-surface));
+}
+
+.statusCardYellow {
+  border-left-color: var(--color-status-yellow);
+  background: linear-gradient(to right, var(--color-status-yellow-bg), var(--color-bg-surface));
+}
+
+.statusCardOrange {
+  border-left-color: var(--color-status-orange);
+  background: linear-gradient(to right, var(--color-status-orange-bg), var(--color-bg-surface));
+}
+
+.statusCardUnknown {
+  border-left-color: var(--color-status-unknown);
+  background: linear-gradient(to right, var(--color-status-unknown-bg), var(--color-bg-surface));
+}
+
+.statusBadge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.statusBadgeGreen {
+  background-color: var(--color-status-green-bg);
+  color: var(--color-status-green);
+  border: 1px solid var(--color-status-green-border);
+}
+
+.statusBadgeYellow {
+  background-color: var(--color-status-yellow-bg);
+  color: var(--color-status-yellow);
+  border: 1px solid var(--color-status-yellow-border);
+}
+
+.statusBadgeOrange {
+  background-color: var(--color-status-orange-bg);
+  color: var(--color-status-orange);
+  border: 1px solid var(--color-status-orange-border);
+}
+
+.statusBadgeUnknown {
+  background-color: var(--color-status-unknown-bg);
+  color: var(--color-status-unknown);
+  border: 1px solid var(--color-status-unknown-border);
+}
+
+.statusReason {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.statusNotice {
+  font-size: 12px;
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  margin-top: 4px;
+}
+
+/* Weather & Quake Combined Section */
+.weatherGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.weatherCol {
+  background-color: var(--color-bg-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.weatherDayLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.weatherIconWrapper {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-accent);
+  margin: 2px 0;
+}
+
+.weatherTemp {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.weatherRain {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.quakeDivider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 4px 0;
+}
+
+.quakeBox {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quakeHeaderRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.quakeMagnitude {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.quakeTag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-badge-blue);
+  color: var(--color-text-accent);
+  border: 1px solid #bfdbfe;
+}
+
+.quakeLocation {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.quakeDetailsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.quakeMuted {
+  opacity: 0.65;
+}
+
+/* Announcement Card (1 Top Announcement) */
+.announcementCard {
+  border-left: 4px solid var(--color-text-accent);
+}
+
+.announcementTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.announcementDate {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+/* CiMart Horizontal Strip */
+.productStrip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 6px;
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Tap target >= 48px */
+.productItem {
+  flex: 0 0 170px;
+  scroll-snap-align: start;
+  background-color: var(--color-bg-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  touch-action: manipulation;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.productItem:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.productThumb {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  background-color: #e2e8f0;
+}
+
+.productThumbPlaceholder {
+  width: 100%;
+  height: 100px;
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.productInfo {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.productName {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.productPrice {
+  font-size: 13px;
+  font-weight: 700;
+  color: #15803d;
+  margin: 2px 0 0;
+}
+
+.productStore {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.phase0Box {
+  background-color: var(--color-bg-surface-elevated);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phase0Headline {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.phase0Text {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* App Launcher Section (#aplikasi) */
+.appList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Tap target >= 48px */
+.appCard {
+  min-height: 60px;
+  padding: 12px 14px;
+  background-color: var(--color-bg-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  touch-action: manipulation;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.appCard:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.appCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.appCardLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.appCardDesc {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.appCardArrow {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 16px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footerText {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Responsive adjustment for 320px screens */
+@media (max-width: 340px) {
+  .container {
+    padding: 12px 8px 32px;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 12px 10px;
+  }
+
+  .weatherGrid {
+    gap: 4px;
+  }
+
+  .weatherCol {
+    padding: 8px 2px;
+  }
+
+  .weatherDayLabel {
+    font-size: 10px;
+  }
+
+  .weatherTemp {
+    font-size: 11px;
+  }
+}

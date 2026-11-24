@@ -55,7 +55,8 @@ export function usePoll<T>({
 
     const onVisibilityChange = () => {
       if (!document.hidden && pauseWhenHidden) {
-        void execute();
+        if (timer) clearTimeout(timer);
+        void runLoop();
       }
     };
 
