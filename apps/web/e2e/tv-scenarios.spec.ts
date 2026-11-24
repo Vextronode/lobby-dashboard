@@ -294,11 +294,11 @@ test.describe('TV Kiosk Scenarios (LOBBY-03)', () => {
     const quakeHeading = page.getByRole('heading', { name: 'Gempa Pangandaran' });
     await expect(quakeHeading).toBeVisible();
     const quakeCard = quakeHeading.locator('xpath=ancestor::div[contains(@class, "card")]');
-    await expect(quakeCard.getByText('M 4.8')).toBeVisible();
+    await expect(quakeCard.getByText('M 4.8', { exact: true })).toBeVisible();
 
     // Population Card
     await expect(page.getByRole('heading', { name: 'Penduduk Desa' })).toBeVisible();
-    await expect(page.getByText('4.250')).toBeVisible();
+    await expect(page.getByText('4.250', { exact: true })).toBeVisible();
 
     // Running text ticker & QR Code
     await expect(page.getByLabel('Informasi Berjalan')).toBeVisible();
@@ -486,7 +486,7 @@ test.describe('TV Kiosk Scenarios (LOBBY-03)', () => {
     // The word "Aman" must never appear on the status card badge or text
     const statusCard = page
       .locator('div')
-      .filter({ hasText: /^🛡️Kesiapsiagaan/ })
+      .filter({ hasText: /^Kesiapsiagaan/ })
       .first();
     await expect(statusCard).not.toContainText('Aman');
   });

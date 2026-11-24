@@ -26,12 +26,22 @@ export function TickerBar({ status, content }: TickerBarProps) {
   return (
     <div className={styles.tickerContainer} aria-label="Informasi Berjalan">
       <div className={styles.tickerTrack}>
-        {tickerItems.map((item, idx) => (
-          <span key={`${item}-${idx.toString()}`} className={styles.tickerItem}>
-            <span>{item}</span>
-            <span className={styles.tickerSeparator}>•</span>
-          </span>
-        ))}
+        <div className={styles.tickerGroup}>
+          {tickerItems.map((item, idx) => (
+            <span key={`t1-${item}-${idx.toString()}`} className={styles.tickerItem}>
+              <span>{item}</span>
+              <span className={styles.tickerSeparator}>•</span>
+            </span>
+          ))}
+        </div>
+        <div className={styles.tickerGroup} aria-hidden="true">
+          {tickerItems.map((item, idx) => (
+            <span key={`t2-${item}-${idx.toString()}`} className={styles.tickerItem}>
+              <span>{item}</span>
+              <span className={styles.tickerSeparator}>•</span>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

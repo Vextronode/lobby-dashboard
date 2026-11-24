@@ -1,30 +1,23 @@
 import type { LobbyCimart, ModuleEnvelope } from '@lobby/contract';
 import styles from '../../design/cards.module.css';
 import { copy } from '../../shared/copy/id';
-import { useGlobalBeat } from '../../shared/hooks/useGlobalBeat';
 
 export interface CiMartCardProps {
   readonly module: ModuleEnvelope<LobbyCimart>;
   readonly serverTimeOffsetMs?: number;
 }
 
-export function CiMartCard({ module, serverTimeOffsetMs = 0 }: CiMartCardProps) {
+export function CiMartCard({ module }: CiMartCardProps) {
   const { state, data } = module;
 
-  // F09: Phase 1: products.length + 1 slides. Phase 0: 3 slides. Unavailable: 1 slide
   const phase = data?.phase ?? 0;
   const products = data?.featured_products ?? [];
-  const slideCount =
-    state !== 'ok' && state !== 'stale' ? 1 : phase === 1 ? products.length + 1 : 3;
-
-  const { slideIndex } = useGlobalBeat(slideCount, serverTimeOffsetMs);
 
   if (state === 'loading') {
     return (
-      <div className={styles.card}>
+      <div className={styles.card} style={{ height: '100%' }}>
         <div className={styles.cardHeader}>
           <div className={styles.cardHeaderLeft}>
-            <span className={styles.cardIcon}>🛍️</span>
             <h2 className={styles.cardTitle}>{copy.cimart.cardTitle}</h2>
           </div>
         </div>
@@ -35,13 +28,11 @@ export function CiMartCard({ module, serverTimeOffsetMs = 0 }: CiMartCardProps) 
     );
   }
 
-  // F09 R-7: unavailable displays neutral text without "Segera hadir"
   if (state === 'unavailable' || !data) {
     return (
-      <div className={styles.card}>
+      <div className={styles.card} style={{ height: '100%' }}>
         <div className={styles.cardHeader}>
           <div className={styles.cardHeaderLeft}>
-            <span className={styles.cardIcon}>🛍️</span>
             <h2 className={styles.cardTitle}>{copy.cimart.cardTitle}</h2>
           </div>
         </div>
@@ -52,119 +43,217 @@ export function CiMartCard({ module, serverTimeOffsetMs = 0 }: CiMartCardProps) 
     );
   }
 
-  // Phase 0: 3 slides
   if (phase === 0) {
-    const titles = [copy.cimart.phase0Title, 'Apa itu CiMart?', 'Ajakan Pendaftaran'];
-    const safeIndex = slideIndex < 3 ? slideIndex : 0;
-
     return (
-      <div className={styles.card}>
+      <div className={styles.card} style={{ height: '100%' }}>
         <div className={styles.cardHeader}>
           <div className={styles.cardHeaderLeft}>
-            <span className={styles.cardIcon}>🛍️</span>
-            <h2 className={styles.cardTitle}>{copy.cimart.cardTitle}</h2>
+            <span className={styles.categoryBadge}>{copy.cimart.cardTitle}</span>
           </div>
-          <span className={styles.cardHeaderMeta}>{titles[safeIndex]}</span>
+          <span className={styles.cardHeaderMeta}>Marketplace Warga Desa</span>
         </div>
-        <div className={styles.cardBody}>
-          {safeIndex === 0 && (
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#38bdf8' }}>
+        <div
+          className={styles.cardBody}
+          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+        >
+          <div className={styles.heroTopRow}>
+            <div>
+              <h3 className={styles.heroHeadline}>Etalase Digital Produk Warga Desa Cibenda</h3>
+              <p className={styles.heroSubtitle}>{copy.cimart.phase0Description}</p>
+            </div>
+          </div>
+
+          <div className={styles.weatherGrid} style={{ flex: 1, margin: '14px 0' }}>
+            <div className={styles.weatherCol}>
+              <div style={{ fontSize: '16px', fontWeight: 800, color: 'var(--color-text-accent)' }}>
                 {copy.cimart.phase0Title}
               </div>
               <div
-                style={{ fontSize: '12px', color: 'var(--color-text-secondary)', marginTop: '4px' }}
+                style={{
+                  fontSize: '13px',
+                  color: 'var(--color-text-secondary)',
+                  marginTop: '10px',
+                  lineHeight: 1.5,
+                }}
               >
-                {copy.cimart.phase0Description}
+                Platform digital resmi desa untuk memasarkan hasil bumi, olahan kuliner, dan
+                kerajinan tangan warga.
               </div>
             </div>
-          )}
-          {safeIndex === 1 && (
-            <div>
+
+            <div className={styles.weatherCol}>
               <div
-                style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-text-primary)' }}
+                style={{ fontSize: '16px', fontWeight: 800, color: 'var(--color-text-primary)' }}
               >
-                Marketplace Digital Warga Desa Cibenda
+                Dukungan UMKM Lokal
               </div>
               <div
-                style={{ fontSize: '11px', color: 'var(--color-text-secondary)', marginTop: '4px' }}
+                style={{
+                  fontSize: '13px',
+                  color: 'var(--color-text-secondary)',
+                  marginTop: '10px',
+                  lineHeight: 1.5,
+                }}
               >
-                Wadah promosi produk olahan, kerajinan, dan kuliner khas desa untuk warga dan
-                wisatawan.
+                Membantu pedagang dan pengrajin lokal menjangkau pembeli warga sekitar hingga
+                wisatawan Pangandaran.
               </div>
             </div>
-          )}
-          {safeIndex === 2 && (
-            <div style={{ fontSize: '12px', color: 'var(--color-text-primary)', lineHeight: 1.4 }}>
-              {copy.cimart.phase0Cta}
+
+            <div className={styles.weatherCol}>
+              <div style={{ fontSize: '16px', fontWeight: 800, color: 'var(--color-text-accent)' }}>
+                Pendaftaran Usaha
+              </div>
+              <div
+                style={{
+                  fontSize: '13px',
+                  color: 'var(--color-text-secondary)',
+                  marginTop: '10px',
+                  lineHeight: 1.5,
+                }}
+              >
+                {copy.cimart.phase0Cta}
+              </div>
             </div>
-          )}
+          </div>
+
+          <div className={styles.advisoryBanner}>
+            <span>Dikelola oleh Badan Usaha Milik Desa (BUMDes) Cibenda Sejahtera.</span>
+            <span style={{ fontWeight: 700, color: 'var(--color-text-accent)' }}>
+              Pendaftaran Gratis di Kantor Desa
+            </span>
+          </div>
         </div>
       </div>
     );
   }
 
-  // Phase 1: Products + 1 CTA slide per cycle (F09 R-6)
-  const isCtaSlide = slideIndex >= products.length;
-
-  if (isCtaSlide) {
-    return (
-      <div className={styles.card}>
-        <div className={styles.cardHeader}>
-          <div className={styles.cardHeaderLeft}>
-            <span className={styles.cardIcon}>🛍️</span>
-            <h2 className={styles.cardTitle}>{copy.cimart.cardTitle}</h2>
-          </div>
-          <span className={styles.cardHeaderMeta}>Informasi Usaha</span>
-        </div>
-        <div className={styles.cardBody}>
-          <div style={{ fontSize: '14px', fontWeight: 700, color: '#38bdf8' }}>
-            {copy.cimart.phase1CtaTitle}
-          </div>
-          <div style={{ fontSize: '11px', color: 'var(--color-text-secondary)', marginTop: '4px' }}>
-            {copy.cimart.phase1CtaText}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const currentProduct = products[slideIndex] ?? products[0];
-  if (!currentProduct) {
-    return null;
-  }
-  const priceFormatted = `Rp${currentProduct.price.toLocaleString('id-ID')}`;
+  const displayProducts = products.slice(0, 6);
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} style={{ height: '100%' }}>
       <div className={styles.cardHeader}>
         <div className={styles.cardHeaderLeft}>
-          <span className={styles.cardIcon}>🛍️</span>
-          <h2 className={styles.cardTitle}>{copy.cimart.cardTitle}</h2>
+          <span className={styles.categoryBadge}>{copy.cimart.cardTitle}</span>
         </div>
-        <span className={styles.cardHeaderMeta}>{currentProduct.category.name}</span>
+        <span className={styles.cardHeaderMeta}>Katalog Produk Usaha Warga Desa Cibenda</span>
       </div>
-      <div className={styles.cardBody}>
-        <div className={styles.cimartProduct}>
-          {currentProduct.image_url ? (
-            <img
-              src={currentProduct.image_url}
-              alt={currentProduct.name}
-              className={styles.cimartThumb}
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          ) : (
-            <div className={styles.cimartThumbFallback}>
-              {currentProduct.category.name || copy.cimart.defaultCategory}
-            </div>
-          )}
-          <div className={styles.cimartInfo}>
-            <div className={styles.cimartName}>{currentProduct.name}</div>
-            <div className={styles.cimartPrice}>{priceFormatted}</div>
-            <div className={styles.cimartShop}>{currentProduct.store.name}</div>
+
+      <div
+        className={styles.cardBody}
+        style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+      >
+        <div className={styles.heroTopRow}>
+          <div>
+            <h3 className={styles.heroHeadline}>Produk Unggulan Usaha Mikro & Warga Desa</h3>
+            <p className={styles.heroSubtitle}>
+              Karya olahan, kuliner khas, dan kerajinan tangan hasil usaha warga Desa Cibenda.
+            </p>
           </div>
+          <div className={styles.heroRightMeta}>
+            <div className={styles.heroMetaLabel}>Produk Terdaftar</div>
+            <div className={styles.heroMetaValue}>{products.length.toString()} Produk</div>
+          </div>
+        </div>
+
+        <div className={styles.cimartGrid} style={{ flex: 1, minHeight: 0 }}>
+          {displayProducts.map((p) => {
+            const priceFormatted = `Rp${p.price.toLocaleString('id-ID')}`;
+
+            return (
+              <div
+                key={p.id}
+                style={{
+                  backgroundColor: 'var(--color-bg-surface-elevated)',
+                  border: '1px solid var(--color-border)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '10px 12px',
+                  display: 'flex',
+                  gap: '12px',
+                  alignItems: 'center',
+                }}
+              >
+                {p.image_url ? (
+                  <img
+                    src={p.image_url}
+                    alt={p.name}
+                    className={styles.cimartThumb}
+                    style={{ width: '64px', height: '64px', flexShrink: 0 }}
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <div
+                    className={styles.cimartThumbFallback}
+                    style={{
+                      width: '64px',
+                      height: '64px',
+                      fontSize: '10px',
+                      fontWeight: 700,
+                      flexShrink: 0,
+                    }}
+                  >
+                    {p.category.name || copy.cimart.defaultCategory}
+                  </div>
+                )}
+                <div className={styles.cimartInfo} style={{ gap: '2px', minWidth: 0 }}>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignSelf: 'flex-start',
+                      backgroundColor: 'var(--color-bg-badge-blue)',
+                      border: '1px solid #bfdbfe',
+                      borderRadius: 'var(--radius-full)',
+                      padding: '1px 6px',
+                      fontSize: '9px',
+                      fontWeight: 700,
+                      color: 'var(--color-text-accent)',
+                    }}
+                  >
+                    {p.category.name}
+                  </div>
+                  <div
+                    className={styles.cimartName}
+                    style={{
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                    title={p.name}
+                  >
+                    {p.name}
+                  </div>
+                  <div className={styles.cimartPrice} style={{ fontSize: '15px', fontWeight: 800 }}>
+                    {priceFormatted} {p.unit ? `/ ${p.unit}` : ''}
+                  </div>
+                  <div
+                    className={styles.cimartShop}
+                    style={{
+                      fontSize: '10px',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    Penjual: <strong>{p.store.name}</strong>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className={styles.advisoryBanner} style={{ marginTop: '10px' }}>
+          <span>
+            Punya produk usaha olahan atau kerajinan? Daftarkan produk Anda ke etalase digital
+            CiMart desa.
+          </span>
+          <span style={{ fontWeight: 700, color: 'var(--color-text-accent)' }}>
+            Hubungi Seksi Perekonomian Desa
+          </span>
         </div>
       </div>
     </div>

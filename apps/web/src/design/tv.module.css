@@ -1,11 +1,15 @@
 .kioskRoot {
-  width: var(--tv-width);
-  height: var(--tv-height);
-  max-width: var(--tv-width);
-  max-height: var(--tv-height);
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
   overflow: hidden;
-  position: relative;
-  background-color: var(--color-bg-canvas);
+  overscroll-behavior: none;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 45%, #e2e8f0 100%);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   cursor: none;
@@ -13,17 +17,21 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  padding: 14px 18px;
+  gap: 12px;
 }
 
 .header {
-  height: 64px;
-  min-height: 64px;
-  padding: 0 var(--space-xl);
+  height: 56px;
+  min-height: 56px;
+  padding: 0 var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--color-border);
   background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
 }
 
 .brand {
@@ -33,27 +41,27 @@
 }
 
 .brandBadge {
-  background-color: var(--color-bg-subtle);
-  color: var(--color-text-accent);
+  background-color: #0f172a;
+  color: #ffffff;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 4px 8px;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
 }
 
 .brandTitle {
   margin: 0;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   color: var(--color-text-primary);
+  letter-spacing: -0.01em;
 }
 
 .brandSubtitle {
   margin: 0;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--color-text-secondary);
 }
 
@@ -61,13 +69,42 @@
   display: flex;
   align-items: center;
   gap: var(--space-lg);
-  text-align: right;
+}
+
+.liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.clockContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
 }
 
 .clockTime {
-  font-size: 24px;
-  font-weight: 700;
-  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
   color: var(--color-text-primary);
 }
 
@@ -79,9 +116,8 @@
 .mainGrid {
   flex: 1;
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: var(--space-md);
-  padding: var(--space-md) var(--space-xl);
+  grid-template-columns: minmax(0, 1.45fr) minmax(380px, 1fr);
+  gap: 12px;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -89,18 +125,38 @@
 .leftColumn {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: 12px;
   height: 100%;
   overflow: hidden;
 }
 
-.rightColumn {
+.leftTopRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: var(--space-md);
+  gap: 12px;
+  height: 140px;
+  min-height: 140px;
+}
+
+.leftHeroSlot {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   height: 100%;
   overflow: hidden;
+}
+
+.rightColumn > * {
+  flex: 1;
+  min-height: 0;
 }
 
 .footer {
@@ -109,9 +165,13 @@
   display: flex;
   align-items: center;
   background-color: var(--color-bg-surface);
-  border-top: 1px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
+  padding: 0 16px;
+  gap: var(--space-md);
 }
 
 .tickerArea {
@@ -124,16 +184,16 @@
 }
 
 .qrWidget {
-  width: 140px;
-  min-width: 140px;
-  height: 100%;
+  min-width: 155px;
+  height: 38px;
   background-color: var(--color-bg-surface-elevated);
-  border-left: 1px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-sm);
-  padding: 0 var(--space-sm);
+  gap: 8px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
@@ -141,5 +201,5 @@
   font-size: 10px;
   line-height: 1.2;
   color: var(--color-text-secondary);
-  font-weight: 500;
+  font-weight: 600;
 }
