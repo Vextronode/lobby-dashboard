@@ -100,41 +100,41 @@ Dokumen ini merupakan panduan rencana kerja (*actionable task list*) terstruktur
 > **Tujuan**: Membangun portal web mobile yang dibuka warga saat memindai QR code TV, menyajikan informasi cepat, hemat kuota, dan gerbang ke 3 aplikasi desa.
 
 #### 2.1 Kerangka & Tata Letak Mobile Responsif (F11)
-- [ ] Bangun layout vertikal di `apps/web/src/mobile/MobileLayout.tsx` dengan CSS Modules adaptif (min 320 px tanpa overflow horizontal).
-- [ ] Pastikan seluruh elemen tombol dan tautan memiliki ukuran target sentuh (*tap target*) minimal **48 × 48 px**.
-- [ ] Tambahkan tombol manual "Perbarui" di bagian header untuk penyegaran data secara eksplisit.
-- [ ] Pasang `IntersectionObserver` / *Page Visibility API* untuk menghentikan polling data saat tab diminimalkan atau di latar belakang (AC-F11-4).
+- [x] Bangun layout vertikal di `apps/web/src/mobile/MobileLayout.tsx` dengan CSS Modules adaptif (min 320 px tanpa overflow horizontal).
+- [x] Pastikan seluruh elemen tombol dan tautan memiliki ukuran target sentuh (*tap target*) minimal **48 × 48 px**.
+- [x] Tambahkan tombol manual "Perbarui" di bagian header untuk penyegaran data secara eksplisit.
+- [x] Pasang `IntersectionObserver` / *Page Visibility API* untuk menghentikan polling data saat tab diminimalkan atau di latar belakang (AC-F11-4).
 
 #### 2.2 Komponen Banner Awas & Status (F01, F02)
-- [ ] Render Banner Merah Darurat di posisi paling atas jika level RED: judul AWAS, alasan, titik kumpul, dan tombol kontak darurat bertautan langsung `tel:<nomor>` (AC-F02-6).
-- [ ] Render Card Status Kesiapsiagaan ringkas (tanpa banner jika level bukan RED).
+- [x] Render Banner Merah Darurat di posisi paling atas jika level RED: judul AWAS, alasan, titik kumpul, dan tombol kontak darurat bertautan langsung `tel:<nomor>` (AC-F02-6).
+- [x] Render Card Status Kesiapsiagaan ringkas (tanpa banner jika level bukan RED).
 
 #### 2.3 Komponen Cuaca & Gempa Terkini (F04, F05)
-- [ ] Render Prakiraan Cuaca 3 Hari secara berdampingan (Hari ini, Besok, Lusa) dalam 1 baris/kartu terpadu (F04 R-5).
-- [ ] Tampilkan informasi Gempa Pangandaran terakhir tepat di bawah prakiraan cuaca.
+- [x] Render Prakiraan Cuaca 3 Hari secara berdampingan (Hari ini, Besok, Lusa) dalam 1 baris/kartu terpadu (F04 R-5).
+- [x] Tampilkan informasi Gempa Pangandaran terakhir tepat di bawah prakiraan cuaca.
 
 #### 2.4 Komponen Pengumuman Desa (F03, F11)
-- [ ] Tampilkan tepat **1 pengumuman resmi desa teratas** (judul dan tanggal WIB).
-- [ ] Sembunyikan bagian ini secara bersih jika tidak ada pengumuman terbit aktif (F11 R-4).
+- [x] Tampilkan tepat **1 pengumuman resmi desa teratas** (judul dan tanggal WIB).
+- [x] Sembunyikan bagian ini secara bersih jika tidak ada pengumuman terbit aktif (F11 R-4).
 
 #### 2.5 Carousel Produk CiMart (F09)
-- [ ] Bangun carousel sentuh (*touch swipe*) horizontal untuk menampilkan produk UMKM terverifikasi warga.
-- [ ] Setiap ubin produk menautkan langsung ke halaman detail produk di aplikasi CiMart.
-- [ ] Jika Fase 0 atau unavailable, tampilkan 1 kartu edukasi pendaftaran UMKM melalui SKU.
-- [ ] Pastikan total ukuran aset gambar tidak melebihi **400 KB** per kunjungan (F09 NFR-1).
+- [x] Bangun carousel sentuh (*touch swipe*) horizontal untuk menampilkan produk UMKM terverifikasi warga.
+- [x] Setiap ubin produk menautkan langsung ke halaman detail produk di aplikasi CiMart.
+- [x] Jika Fase 0 atau unavailable, tampilkan 1 kartu edukasi pendaftaran UMKM melalui SKU.
+- [x] Pastikan total ukuran aset gambar tidak melebihi **400 KB** per kunjungan (F09 NFR-1).
 
 #### 2.6 Portal Akses 3 Aplikasi Desa (F11)
-- [ ] Bangun 3 kartu peluncur aplikasi dari konfigurasi desa (`/#aplikasi`):
+- [x] Bangun 3 kartu peluncur aplikasi dari konfigurasi desa (`/#aplikasi`):
   1. **Buka SIGAP**: Sistem Mitigasi & Peringatan Dini Bencana.
   2. **Ajukan Surat (SID)**: Layanan Administrasi & Persuratan Mandiri Warga.
   3. **Belanja di CiMart**: Pasar Online UMKM Warga Desa Cibenda.
-- [ ] Pastikan anchor ID `/#aplikasi` dapat diakses langsung dari URL QR eksternal (AC-F11-2).
-- [ ] Pastikan data Penduduk (F07) dan Layanan Surat (F08) **sama sekali tidak dirender** di halaman mobile (AC-F11-5).
+- [x] Pastikan anchor ID `/#aplikasi` dapat diakses langsung dari URL QR eksternal (AC-F11-2).
+- [x] Pastikan data Penduduk (F07) dan Layanan Surat (F08) **sama sekali tidak dirender** di halaman mobile (AC-F11-5).
 
 #### 2.7 Pengujian & Verifikasi LOBBY-04
-- [ ] Uji kompatibilitas layar sempit (viewport 320 px) bebas scroll horizontal (AC-F11-3).
-- [ ] Uji audit aksesibilitas menggunakan `axe-core` (lulus kontras warna dan atribut semantik).
-- [ ] Uji simulasi jaringan lambat (*Slow 4G*) untuk memverifikasi LCP $< 3$ detik.
+- [x] Uji kompatibilitas layar sempit (viewport 320 px) bebas scroll horizontal (AC-F11-3).
+- [x] Uji audit aksesibilitas menggunakan `axe-core` (lulus kontras warna dan atribut semantik).
+- [x] Uji simulasi jaringan lambat (*Slow 4G*) untuk memverifikasi LCP $< 3$ detik.
 
 ---
 

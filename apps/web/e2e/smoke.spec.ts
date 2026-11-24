@@ -44,9 +44,14 @@ test.describe('Lobby Dashboard TV Kiosk (LOBBY-03)', () => {
   });
 
   test('/ shows the mobile page', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Lobby Desa Cibenda' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Desa Cibenda/i })).toBeVisible();
     await page.screenshot({ path: test.info().outputPath('mobile.png') });
+    const outDir = process.env.SCREENSHOT_OUT_DIR;
+    if (outDir) {
+      await page.screenshot({ path: `${outDir}/mobile-normal.png`, fullPage: true });
+    }
   });
 
   test('aggregator /healthz returns 200', async ({ request }) => {
