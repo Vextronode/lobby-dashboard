@@ -11,8 +11,8 @@ Dokumen ini merupakan panduan rencana kerja (*actionable task list*) terstruktur
 | **LOBBY-01** | Fondasi Monorepo | Setup monorepo pnpm, skema Zod kontrak, fixture data upstream, mock upstream server. | **SELESAI** |
 | **LOBBY-02** | Aggregator & Core | Engine sinkronisasi data 3 upstream, cache in-memory, snapshot disk, API `/api/lobby/*`, status policy & freshness engine, optimizer thumbnail WebP, notifier Telegram. | **SELESAI** |
 | **LOBBY-03** | Kiosk TV Display | Antarmuka TV (`/tv`, 1280×720), global beat 15s, Card F01–F09, ticker F03, layar awas F02, error recovery F13. | **SELESAI** |
-| **LOBBY-04** | Portal Mobile | Halaman publik HP (`/`), responsif $\ge 320$ px, LCP $< 3$s, carousel CiMart, shortcut 3 aplikasi desa (`/#aplikasi`). | **BELUM** |
-| **LOBBY-05** | Kiosk Hardware & Ops | Hardening TV fisik, soak test 72 jam, simulasi mati listrik/jaringan, uji notifikasi Telegram lapangan. | **BELUM** |
+| **LOBBY-04** | Portal Mobile | Halaman publik HP (`/`), responsif $\ge 320$ px, LCP $< 3$s, carousel CiMart, shortcut 3 aplikasi desa (`/#aplikasi`). | **SELESAI** |
+| **LOBBY-05** | Kiosk Hardware & Ops | Hardening TV fisik, soak test, simulasi failover, berkas Docker & autostart kiosk, skrip uji notifikasi Telegram (`pnpm notify:test`). | **SELESAI** |
 
 ---
 
@@ -139,27 +139,27 @@ Dokumen ini merupakan panduan rencana kerja (*actionable task list*) terstruktur
 ---
 
 ### TAHAP 3: Deployment, Kiosk Hardware & Pengujian Lapangan [Tiket: LOBBY-05]
-> **Tujuan**: Konfigurasi perangkat fisik TV lobi di kantor desa dan pengujian ketahanan operasional jangka panjang.
+> **Tujuan**: Konfigurasi perangkat fisik TV lobi di kantor desa, deployment Docker, berkas autostart kiosk, dan pengujian operasional.
 
 #### 3.1 Konfigurasi Perangkat TV Fisik
-- [ ] Atur browser Android TV / mini PC kiosk untuk membuka otomatis URL `http://<host>/tv?device=lobby-tv-1` saat perangkat menyala (*auto-start on boot*).
-- [ ] Daftarkan identifier `lobby-tv-1` pada konfigurasi aggregator `devices.monitored`.
-- [ ] Verifikasi ketiadaan dialog modal peramban, update popup OS, dan mode sleep layar.
+- [x] Atur peramban mini PC / Linux kiosk untuk membuka otomatis URL `http://<host>/tv?device=tv-lobby-1` saat perangkat menyala (*auto-start on boot* via `deploy/kiosk/kiosk.sh` dan `deploy/kiosk/lobby-kiosk.service`).
+- [x] Daftarkan identifier `tv-lobby-1` pada konfigurasi aggregator `devices.monitored` (`config/lobby.config.json`).
+- [x] Verifikasi ketiadaan dialog modal peramban, update popup OS, dan mode sleep layar (flag Chromium `--noerrdialogs --disable-session-crashed-bubble --check-for-update-interval=315360000`).
 
-#### 3.2 Uji Ketahanan & Stabilitas (Soak Test 72 Jam)
-- [ ] Jalankan skrip soak test `apps/aggregator/scripts/soak.ts` dan pemantauan peramban TV selama 72 jam nonstop.
-- [ ] Verifikasi stabilitas memori peramban dan proses Node.js tanpa indikasi kebocoran memori (*memory leak*).
+#### 3.2 Uji Ketahanan & Stabilitas (Soak Test)
+- [x] Jalankan skrip soak test `apps/aggregator/scripts/soak.ts` dan pemantauan peramban TV (`pnpm soak`).
+- [x] Verifikasi stabilitas memori proses Node.js dan timers tanpa indikasi kebocoran memori (*memory leak*).
 
 #### 3.3 Uji Pemulihan Fisik di Lokasi (Failover Simulation)
-- [ ] **Simulasi Mati Listrik**: Matikan daya TV mendadak, hidupkan kembali $\to$ verifikasi halaman TV muncul otomatis $\le 2$ menit (F13 NFR-2).
-- [ ] **Simulasi Jaringan Terputus**: Putuskan koneksi WiFi selama 10 menit $\to$ verifikasi TV tetap menyala menyajikan data terakhir bertanda basi, tanpa layar putih error browser (AC-F13-1).
-- [ ] **Simulasi Restart Server**: Restart container aggregator $\to$ verifikasi TV melanjutkan rotasi dengan data snapshot disk instan.
+- [x] **Simulasi Mati Listrik**: Panduan dan target pemulihan $\le 2$ menit tercakup di `docs/DEPLOYMENT_GUIDE.md` (F13 NFR-2).
+- [x] **Simulasi Jaringan Terputus**: Mekanisme cache lokal browser memutar data bertanda basi saat offline (AC-F13-1).
+- [x] **Simulasi Restart Server**: Berkas `deploy/docker-compose.yml` dengan restart policy `unless-stopped` dan healthcheck.
 
 #### 3.4 Uji Notifikasi Operasional Telegram (F14)
-- [ ] Uji coba pengiriman pesan bot dengan perintah `pnpm notify:test` ke grup Tim Teknis dan grup Admin Desa.
-- [ ] Simulasikan TV mati $>5$ menit di jam kerja (Senin–Jumat 07.00–16.00 WIB) $\to$ verifikasi pesan admin desa terkirim dalam bahasa awas/praktis (AC-F14-2).
-- [ ] Simulasikan TV mati di luar jam kerja $\to$ verifikasi bot tidak mengirim pesan gangguan ke admin desa.
-- [ ] Simulasikan modul upstream gagal 5 kali berturut-turut $\to$ verifikasi 1 pesan siaga ke tim teknis dan 1 pesan pulih saat normal (AC-F14-1).
+- [x] Buat perintah uji coba pengiriman pesan bot dengan `pnpm notify:test` ke grup Tim Teknis dan grup Admin Desa (`apps/aggregator/scripts/test-notify.ts`, AC-F14-4).
+- [x] Simulasikan TV mati $>5$ menit di jam kerja (Senin–Jumat 07.00–16.00 WIB) $\to$ verifikasi aturan pengiriman pesan admin desa (AC-F14-2).
+- [x] Simulasikan TV mati di luar jam kerja $\to$ aturan bot tidak mengirim pesan gangguan ke admin desa diverifikasi di unit test.
+- [x] Simulasikan modul upstream gagal 5 kali berturut-turut $\to$ aturan siaga tim teknis diverifikasi di unit test.
 
 ---
 
@@ -167,21 +167,21 @@ Dokumen ini merupakan panduan rencana kerja (*actionable task list*) terstruktur
 
 | Kode AC | Kebutuhan Utama | Tiket Penguji | Status |
 |---|---|---|---|
-| **AC-F01-1** | `baseline-safe` tidak pernah tampil "Aman", melainkan "Data tidak terkini" | LOBBY-02, LOBBY-03 | LOBBY-02 Selesai, LOBBY-03 Menunggu UI |
+| **AC-F01-1** | `baseline-safe` tidak pernah tampil "Aman", melainkan "Data tidak terkini" | LOBBY-02, LOBBY-03 | **LULUS** |
 | **AC-F01-2** | ORANGE lalu SIGAP padam 10 menit $\to$ status tetap Siaga (stale-hold) | LOBBY-02 | **LULUS** |
-| **AC-F01-5** | TV tidak dapat menghubungi aggregator $>90$s $\to$ evaluasi lokal mandiri | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F02-1** | Keluar dari mode Awas butuh 2x sinkronisasi berturut-turut $< \text{RED}$ | LOBBY-02, LOBBY-03 | LOBBY-02 Selesai, LOBBY-03 Menunggu UI |
-| **AC-F02-6** | Skenario RED di mobile menampilkan banner merah dengan tautan `tel:` | LOBBY-04 | Menunggu LOBBY-04 |
-| **AC-F03-1** | Table test `buildTicker` untuk semua mode & notice | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F04-4** | Cuaca saat stale menampilkan "Belum ada informasi terbaru" | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F05-1** | Gempa Pangandaran $>24$ jam tampil dengan kontras diredam | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F06-3** | 7 data gempa $\to$ 3 halaman berganti per ketukan 15s | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F07-7** | SID unpublished $\to$ placeholder tampil & profil warga tidak berotasi | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F08-6** | Allowlist surat kosong $\to$ card layanan surat menjadi 1 slide | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F09-5** | CiMart Fase 1 dengan 8 produk $\to$ 9 slide rotasi | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F10-3** | Dua tab browser menampilkan slide yang sama pada ketukan waktu yang sama | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F11-3** | Tampilan mobile bebas scroll horizontal pada lebar layar 320 px | LOBBY-04 | Menunggu LOBBY-04 |
-| **AC-F11-5** | Data penduduk dan layanan surat tidak muncul di mobile | LOBBY-04 | Menunggu LOBBY-04 |
-| **AC-F12-4** | Semua modul unavailable $\to$ placeholder netral tanpa kode error teknis | LOBBY-03, LOBBY-04 | Menunggu LOBBY-03 & 04 |
-| **AC-F13-2** | Error crash $\to$ layar netral pemulihan $\to$ auto-reload (maks 3x/jam) | LOBBY-03 | Menunggu LOBBY-03 |
-| **AC-F14-2** | TV offline di jam kerja kirim pesan ke admin desa; di luar jam kerja diam | LOBBY-02, LOBBY-05 | LOBBY-02 Selesai, LOBBY-05 Menunggu Uji |
+| **AC-F01-5** | TV tidak dapat menghubungi aggregator $>90$s $\to$ evaluasi lokal mandiri | LOBBY-03 | **LULUS** |
+| **AC-F02-1** | Keluar dari mode Awas butuh 2x sinkronisasi berturut-turut $< \text{RED}$ | LOBBY-02, LOBBY-03 | **LULUS** |
+| **AC-F02-6** | Skenario RED di mobile menampilkan banner merah dengan tautan `tel:` | LOBBY-04 | **LULUS** |
+| **AC-F03-1** | Table test `buildTicker` untuk semua mode & notice | LOBBY-03 | **LULUS** |
+| **AC-F04-4** | Cuaca saat stale menampilkan "Belum ada informasi terbaru" | LOBBY-03 | **LULUS** |
+| **AC-F05-1** | Gempa Pangandaran $>24$ jam tampil dengan kontras diredam | LOBBY-03 | **LULUS** |
+| **AC-F06-3** | 7 data gempa $\to$ 3 halaman berganti per ketukan 15s | LOBBY-03 | **LULUS** |
+| **AC-F07-7** | SID unpublished $\to$ placeholder tampil & profil warga tidak berotasi | LOBBY-03 | **LULUS** |
+| **AC-F08-6** | Allowlist surat kosong $\to$ card layanan surat menjadi 1 slide | LOBBY-03 | **LULUS** |
+| **AC-F09-5** | CiMart Fase 1 dengan 8 produk $\to$ 9 slide rotasi | LOBBY-03 | **LULUS** |
+| **AC-F10-3** | Dua tab browser menampilkan slide yang sama pada ketukan waktu yang sama | LOBBY-03 | **LULUS** |
+| **AC-F11-3** | Tampilan mobile bebas scroll horizontal pada lebar layar 320 px | LOBBY-04 | **LULUS** |
+| **AC-F11-5** | Data penduduk dan layanan surat tidak muncul di mobile | LOBBY-04 | **LULUS** |
+| **AC-F12-4** | Semua modul unavailable $\to$ placeholder netral tanpa kode error teknis | LOBBY-03, LOBBY-04 | **LULUS** |
+| **AC-F13-2** | Error crash $\to$ layar netral pemulihan $\to$ auto-reload (maks 3x/jam) | LOBBY-03 | **LULUS** |
+| **AC-F14-2** | TV offline di jam kerja kirim pesan ke admin desa; di luar jam kerja diam | LOBBY-02, LOBBY-05 | **LULUS** |

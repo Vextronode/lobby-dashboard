@@ -14,7 +14,9 @@
     "check": "pnpm lint && pnpm typecheck && pnpm test",
     "build": "pnpm -r run build",
     "e2e": "playwright test",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "notify:test": "pnpm --filter @lobby/aggregator notify:test",
+    "soak": "pnpm --filter @lobby/aggregator soak"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

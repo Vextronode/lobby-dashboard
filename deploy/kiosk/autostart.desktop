@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Lobby Dashboard Kiosk
+Comment=Autostart peramban kiosk untuk TV Lobi Desa Cibenda
+Exec=/bin/bash -c "sleep 5 && /opt/lobby/deploy/kiosk/kiosk.sh"
+Terminal=false
+StartupNotify=false
+X-GNOME-Autostart-enabled=true

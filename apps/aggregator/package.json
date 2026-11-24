@@ -8,7 +8,8 @@
     "start": "node dist/index.js",
     "build": "tsup",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "soak": "tsx scripts/soak.ts"
+    "soak": "tsx scripts/soak.ts",
+    "notify:test": "tsx scripts/test-notify.ts"
   },
   "dependencies": {
     "@hono/node-server": "2.1.3",
