@@ -1,0 +1,42 @@
+services:
+  lobby:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: lobby-dashboard:latest
+    container_name: lobby-dashboard
+    restart: unless-stopped
+    ports:
+      - '${PORT:-8080}:8080'
+    environment:
+      - PORT=8080
+      - SIGAP_BASE_URL=${SIGAP_BASE_URL}
+      - SID_BASE_URL=${SID_BASE_URL}
+      - CIMART_BASE_URL=${CIMART_BASE_URL}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_CHAT_TECH=${TELEGRAM_CHAT_TECH:-}
+      - TELEGRAM_CHAT_ADMIN=${TELEGRAM_CHAT_ADMIN:-}
+      - DATA_DIR=/app/data
+      - LOBBY_CONFIG_PATH=/app/config/lobby.config.json
+      - WEB_DIST_DIR=/app/web-dist
+      - TRUST_PROXY=${TRUST_PROXY:-false}
+      - BUILD_ID=${BUILD_ID:-v1.0.0}
+    volumes:
+      - lobby-data:/app/data
+      - ../config/lobby.config.json:/app/config/lobby.config.json:ro
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://localhost:8080/healthz').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  lobby-data:
+    name: lobby-data

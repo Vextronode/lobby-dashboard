@@ -1,0 +1,17 @@
+[Unit]
+Description=Lobby TV Kiosk Display (Desa Cibenda)
+After=network-online.target graphical.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+Environment=TV_URL=http://localhost:8080/tv?device=tv-lobby-1
+ExecStart=/bin/bash /opt/lobby/deploy/kiosk/kiosk.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target

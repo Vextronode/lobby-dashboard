@@ -12,8 +12,8 @@ import { loadConfig, parseEnv } from '../src/config/load-config';
 import { createLogger } from '../src/observability/logger';
 
 const DEFAULT_MINUTES = 120;
-const SOAK_INTERVAL_S = 2;
-const REPORT_EVERY_MS = 60_000;
+const SOAK_INTERVAL_S = Number(process.env.SOAK_INTERVAL_S ?? 2);
+const REPORT_EVERY_MS = Number(process.env.SOAK_REPORT_MS ?? 60_000);
 const MOCK_ORIGIN = 'http://soak.mock';
 const BYTES_PER_MB = 1_048_576;
 
