@@ -20,7 +20,7 @@ test.describe('Lobby Dashboard TV Kiosk (LOBBY-03)', () => {
     });
     await page.waitForTimeout(600);
     await page.screenshot({
-      path: '/home/sho/.gemini/antigravity/brain/0270496f-3847-49bc-9614-753af320f108/tv-fullscreen-1080p.png',
+      path: test.info().outputPath('tv-fullscreen-1080p.png'),
     });
 
     // Capture each slide for inspection
@@ -37,7 +37,7 @@ test.describe('Lobby Dashboard TV Kiosk (LOBBY-03)', () => {
         await page.getByRole('button', { name: new RegExp(tabName, 'i') }).click();
         await page.waitForTimeout(600);
         await page.screenshot({
-          path: `/home/sho/.gemini/antigravity/brain/0270496f-3847-49bc-9614-753af320f108/tv-slide-${(i + 1).toString()}.png`,
+          path: test.info().outputPath(`tv-slide-${(i + 1).toString()}.png`),
         });
       }
     }
